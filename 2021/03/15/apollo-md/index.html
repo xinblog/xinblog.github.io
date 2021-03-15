@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>apollo 学习记录 - 周瑜的小家园</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Apollo分布式配置中心1.Apollo快速开始
+下...">
+  <meta name="author" content="周瑜">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/welcome-image.jpg',
+          api: ''
+        },
+        motto: {
+          default: '无法让步的有两件事，幸福和周瑜大人。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">apollo 学习记录</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">fan</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">apollo 学习记录</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>March 15, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>7455</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h2 id="Apollo分布式配置中心"><a href="#Apollo分布式配置中心" class="headerlink" title="Apollo分布式配置中心"></a>Apollo分布式配置中心</h2><h4 id="1-Apollo快速开始"><a href="#1-Apollo快速开始" class="headerlink" title="1.Apollo快速开始"></a>1.Apollo快速开始</h4><ul>
+<li><p>下载Quick Start安装包</p>
+</li>
+<li><p>创建ApolloPortalDB和apolloConfigDB数据库</p>
+</li>
+<li><p>配置数据库连接信息</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bat"><span class="hljs-built_in">echo</span><br><br><span class="hljs-built_in">set</span> url="localhost:<span class="hljs-number">3306</span>"<br><span class="hljs-built_in">set</span> username="root"<br><span class="hljs-built_in">set</span> password="<span class="hljs-number">123456</span>"<br><br><span class="hljs-built_in">start</span> "configService" java -Xms256m -Xmx256m -Dapollo_profile=github -Dspring.datasource.url=jdbc:mysql://<span class="hljs-variable">%url%</span>/ApolloConfigDB?characterEncoding=utf8 -Dspring.datasource.username=<span class="hljs-variable">%username%</span> -Dspring.datasource.password=<span class="hljs-variable">%password%</span> -Dlogging.file=.\logs\apollo-configservice.log -jar .\apollo-configservice-<span class="hljs-number">1</span>.<span class="hljs-number">3</span>.<span class="hljs-number">0</span>.jar<br><span class="hljs-built_in">start</span> "adminService" java -Xms256m -Xmx256m -Dapollo_profile=github -Dspring.datasource.url=jdbc:mysql://<span class="hljs-variable">%url%</span>/ApolloConfigDB?characterEncoding=utf8 -Dspring.datasource.username=<span class="hljs-variable">%username%</span> -Dspring.datasource.password=<span class="hljs-variable">%password%</span> -Dlogging.file=.\logs\apollo-adminservice.log -jar .\apollo-adminservice-<span class="hljs-number">1</span>.<span class="hljs-number">3</span>.<span class="hljs-number">0</span>.jar<br><span class="hljs-built_in">start</span> "ApolloPortal" java -Xms256m -Xmx256m -Dapollo_profile=github,auth -Ddev_meta=http://localhost:<span class="hljs-number">8080</span>/ -Dserver.port=<span class="hljs-number">8070</span> -Dspring.datasource.url=jdbc:mysql://<span class="hljs-variable">%url%</span>/ApolloPortalDB?characterEncoding=utf8 -Dspring.datasource.username=<span class="hljs-variable">%username%</span> -Dspring.datasource.password=<span class="hljs-variable">%password%</span> -Dlogging.file=.\logs\apollo-portal.log -jar .\apollo-portal-<span class="hljs-number">1</span>.<span class="hljs-number">3</span>.<span class="hljs-number">0</span>.jar<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>启动Apollo配置中心，端口不能被占用</p>
+<ul>
+<li>执行runApollo.bat脚本</li>
+<li><img class="lazyload" data-original="apollo-md/image-20210311155701217.png" src="/2021/03/15/apollo-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210311155701217</span></li>
+</ul>
+</li>
+<li><p>创建一个Apollo项目</p>
+</li>
+<li><p><img class="lazyload" data-original="apollo-md/image-20210311155734407.png" src="/2021/03/15/apollo-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210311155734407</span></p>
+</li>
+<li><p>创建需要的配置</p>
+</li>
+<li><p><img class="lazyload" data-original="apollo-md/image-20210311155841873.png" src="/2021/03/15/apollo-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210311155841873</span></p>
+</li>
+<li><p>创建完成后用Idea测试，创建一个spring boot项目</p>
+</li>
+<li><p>引入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.ctrip.framework.apollo<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>apollo-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.8.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>指定配置项目的id 环境 和地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vm">-Dapp.id&#x3D;apollo-quick -Denv&#x3D;DEV -Ddev_meta&#x3D;http:&#x2F;&#x2F;localhost:8080<br></code></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>测试类进行测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf</span>4j<br><span class="hljs-meta">@SpringBootTest</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Project7ApplicationTests</span> </span>&#123;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">contextLoads</span><span class="hljs-params">()</span> </span>&#123;<br>        Config appConfig = ConfigService.getAppConfig();  <span class="hljs-comment">//获取配置对象</span><br>       <span class="hljs-comment">//Apollo是热发布的，实时更新，使用方法测试</span><br>        <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>)&#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                Thread.sleep(<span class="hljs-number">1000</span>);<br>                <span class="hljs-comment">//获取配置信息，第一个参数：配置的key，第二个参数：默认值</span><br>                String sms = appConfig.getProperty(<span class="hljs-string">"sms"</span>, <span class="hljs-keyword">null</span>);<br>                log.info(<span class="hljs-string">"sms: "</span>+sms);<br>            &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-Apollo核心概念"><a href="#2-Apollo核心概念" class="headerlink" title="2.Apollo核心概念"></a>2.Apollo核心概念</h3><h6 id="1-application-应用"><a href="#1-application-应用" class="headerlink" title="1.application(应用)"></a>1.application(应用)</h6><p>​    就是实际使用配置的应用，Apollo客户端在运行时需要知道当前应用是谁从而可以去获取对应的配置  <strong>关键字：appId</strong></p>
+<h6 id="2-environment（环境）"><a href="#2-environment（环境）" class="headerlink" title="2.environment（环境）"></a>2.environment（环境）</h6><p>配置对应的环境，Apollo客户端在运行时需要知道当前应用处于哪个环境，从而可以去获取应用的配置  <strong>关键字：env</strong></p>
+<h6 id="3-cluster（集群）"><a href="#3-cluster（集群）" class="headerlink" title="3.cluster（集群）"></a>3.cluster（集群）</h6><p>一个应用下不同实例的分组，比如典型的可以按照数据中心分。把上海机房的应用实例分为一个集群，把北京机房的应用实例分为另一个集群。  <strong>关键字：cluster</strong></p>
+<h6 id="4-namespace-命名空间"><a href="#4-namespace-命名空间" class="headerlink" title="4.namespace(命名空间)"></a>4.namespace(命名空间)</h6><p>一个应用下不同配置的分组，可以简单的把namespace类比为文件，不同类型的配置放在不同的文件中，如数据库配置文件，RPC配置文件，应用自身的配置文件等。 <strong>关键字：namespace</strong></p>
+<h6 id="他们的关系图："><a href="#他们的关系图：" class="headerlink" title="他们的关系图："></a>他们的关系图：</h6><p><img class="lazyload" data-original="apollo-md/image-20210311164008302.png" src="/2021/03/15/apollo-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210311164008302</span></p>
+</li>
+</ul>
+<h3 id="3-Apollo项目管理"><a href="#3-Apollo项目管理" class="headerlink" title="3.Apollo项目管理"></a>3.Apollo项目管理</h3><h4 id="1-基础设置"><a href="#1-基础设置" class="headerlink" title="1.基础设置"></a>1.基础设置</h4><ul>
+<li><p>添加部门</p>
+<ul>
+<li>Apollo主页  –&gt;   管理员工具  –&gt;   系统参数</li>
+</ul>
+<p><img class="lazyload" data-original="apollo-md/image-20210311170948744.png" src="/2021/03/15/apollo-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210311170948744</span></p>
+<ul>
+<li><p>查询配置信息：organizations然后在返回的json数据中添加</p>
+<p><img class="lazyload" data-original="apollo-md/image-20210311171256529.png" src="/2021/03/15/apollo-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210311171256529</span></p>
+</li>
+</ul>
+</li>
+<li><p>添加用户</p>
+</li>
+<li><p>Apollo主页  –&gt;   管理员工具  –&gt;   用户管理</p>
+</li>
+<li><p>删除项目</p>
+<ul>
+<li>Apollo主页  –&gt;   管理员工具  –&gt;  删除应用，集群</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-添加Namespace"><a href="#2-添加Namespace" class="headerlink" title="2.添加Namespace"></a>2.添加Namespace</h4><p><img class="lazyload" data-original="apollo-md/image-20210311173549047.png" src="/2021/03/15/apollo-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210311173549047</span></p>
+<p><img class="lazyload" data-original="apollo-md/image-20210311173620947.png" src="/2021/03/15/apollo-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210311173620947</span></p>
+<ul>
+<li><p>快捷导入配置</p>
+<p>复制配置放入文本中</p>
+<p><img class="lazyload" data-original="apollo-md/image-20210311173807720.png" src="/2021/03/15/apollo-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210311173807720</span></p>
+</li>
+<li><p>获取namespace的配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf</span>4j<br><span class="hljs-meta">@SpringBootTest</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Project7ApplicationTests</span> </span>&#123;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">contextLoads</span><span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-comment">//        Config appConfig = ConfigService.getAppConfig();  获取默认namespace下的配置信息</span><br>        <span class="hljs-comment">//获取指定namespace下的配置信息</span><br>        Config appConfig =  ConfigService.getConfig(<span class="hljs-string">"apollo-redis"</span>);<br>        <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>)&#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                Thread.sleep(<span class="hljs-number">1000</span>);<br>                String sms = appConfig.getProperty(<span class="hljs-string">"spring.redis.host"</span>, <span class="hljs-keyword">null</span>);<br>                log.info(<span class="hljs-string">"spring.redis.host: "</span>+sms);<br>            &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-springboot集成Apollo"><a href="#4-springboot集成Apollo" class="headerlink" title="4.springboot集成Apollo"></a>4.springboot集成Apollo</h2><h4 id="1-使用-value注解获取"><a href="#1-使用-value注解获取" class="headerlink" title="1.使用@value注解获取"></a>1.使用@value注解获取</h4><ol>
+<li><h5 id="获取默认namespace的值"><a href="#获取默认namespace的值" class="headerlink" title="获取默认namespace的值"></a>获取默认namespace的值</h5></li>
+</ol>
+<ul>
+<li><p>导入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.ctrip.framework.apollo<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>apollo-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.8.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>编写Apollo相关的配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">app.id=apollo-quick</span><br><span class="hljs-string">apollo.meta=http://localhost:8080</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>使用controller进行测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-meta">@EnableApolloConfig</span> <span class="hljs-comment">//</span><br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">apolloController</span> </span>&#123;<br>    <span class="hljs-meta">@Value</span>(<span class="hljs-string">"$&#123;mysql&#125;"</span>) <span class="hljs-comment">//获取key为mysql的配置</span><br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/mysql"</span>)<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getapollo</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">"mysql"</span>+name;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><h5 id="获取指定namespace的值"><a href="#获取指定namespace的值" class="headerlink" title="获取指定namespace的值"></a>获取指定namespace的值</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@EnableApolloConfig</span>(<span class="hljs-string">"redis"</span>)  <span class="hljs-comment">//指定namespace名称</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">redisController</span> </span>&#123;<br>    <span class="hljs-meta">@Value</span>(<span class="hljs-string">"$&#123;spring.redis.host&#125;"</span>)<br>    <span class="hljs-keyword">private</span> String redisHost;<br><br>    <span class="hljs-meta">@Value</span>(<span class="hljs-string">"$&#123;spring.redis.client-type&#125;"</span>)<br>    <span class="hljs-keyword">private</span> String redisType;<br><br>    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/redis"</span>)<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getRedis</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">"redis连接地址： "</span>+redisHost+<span class="hljs-string">"redis类型： "</span>+redisType;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="2-使用bean注入的方式获取"><a href="#2-使用bean注入的方式获取" class="headerlink" title="2.使用bean注入的方式获取"></a>2.使用bean注入的方式获取</h4><ul>
+<li>bean</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@ConfigurationProperties</span>(<span class="hljs-string">"spring.redis"</span>) <span class="hljs-comment">//添加之后自动识别此前缀下的配置</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ApolloConfig</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> String host;  <span class="hljs-comment">//加上前缀对应配置中心的key</span><br>    <span class="hljs-keyword">private</span> String client_type;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>controller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@EnableApolloConfig</span>(<span class="hljs-string">"redis"</span>)<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BeanController</span> </span>&#123;<br><br>    <span class="hljs-meta">@Autowired</span><br>    ApolloConfig apolloConfig;<br><br>    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/redisBean"</span>)<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getRedisBean</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> apolloConfig;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><h5 id="bean注入不会自动刷新，使用-RefreshScope注解"><a href="#bean注入不会自动刷新，使用-RefreshScope注解" class="headerlink" title="bean注入不会自动刷新，使用@RefreshScope注解"></a>bean注入不会自动刷新，使用@RefreshScope注解</h5><ul>
+<li><pre><code class="xml"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>
+            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>
+            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>
+            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span>
+        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>
+<span class="comment"><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><br>- ##### 自动刷新配置类<br><br>  ```java<br>  <span class="hljs-meta">@Component</span><br>  <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RefreshConfig</span> </span>&#123;<br>      <span class="hljs-meta">@Autowired</span><br>      ApolloConfig apolloConfig;<br>      <span class="hljs-meta">@Autowired</span><br>      RefreshScope refreshScope;<br>      <br>      <span class="hljs-meta">@ApolloConfigChangeListener(&#123;<span class="hljs-meta-string">"redis"</span>&#125;)</span><br>      <span class="hljs-keyword">public</span>  void  onChange(ConfigChangeEvent configChangeEvent)&#123;<br>          boolean configChange = <span class="hljs-literal">false</span>;<br>          <span class="hljs-keyword">for</span>(String cKey : configChangeEvent.changedKeys())&#123;<br>              <span class="hljs-keyword">if</span> (cKey.startsWith(<span class="hljs-string">"spring.redis"</span>))&#123;<br>                  configChange = <span class="hljs-literal">true</span>;<br>                  <span class="hljs-keyword">break</span>;<br>              &#125;<br>          &#125;<br>          <span class="hljs-keyword">if</span> (!configChange)&#123;<br>              <span class="hljs-keyword">return</span>;<br>          &#125;<br>          refreshScope.refresh(<span class="hljs-string">"apolloConfig"</span>);<br>      &#125;<br>  &#125;<br></code></pre></td></tr></table></figure></span></code></pre>
+</li>
+<li><h5 id="bean"><a href="#bean" class="headerlink" title="bean"></a>bean</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@ConfigurationProperties</span>(<span class="hljs-string">"spring.redis"</span>)<br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@RefreshScope</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ApolloConfig</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> String host;<br>    <span class="hljs-keyword">private</span> String client_type;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><h5 id="目前会报错-还没找到原因，记录一下"><a href="#目前会报错-还没找到原因，记录一下" class="headerlink" title="目前会报错 还没找到原因，记录一下"></a>目前会报错 还没找到原因，记录一下</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs error">Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class org.springframework.context.expression.StandardBeanExpressionResolver]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.springframework.context.expression.StandardBeanExpressionResolver and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.project.project7.config.ApolloConfig$$EnhancerBySpringCGLIB$$7b737735[&quot;targetSource&quot;]-&gt;org.springframework.aop.target.SimpleBeanTargetSource[&quot;beanFactory&quot;]-&gt;org.springframework.beans.factory.support.DefaultListableBeanFactory[&quot;beanExpressionResolver&quot;])] with root cause<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-灰度发布"><a href="#3-灰度发布" class="headerlink" title="3.灰度发布"></a>3.灰度发布</h4><ul>
+<li>获取方式也是用@value，跟一一样</li>
+</ul>
+<h2 id="5-Apollo的高可用"><a href="#5-Apollo的高可用" class="headerlink" title="5.Apollo的高可用"></a>5.Apollo的高可用</h2>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>周瑜</li>
+    <li><strong>本文链接：</strong><a href="http://yoursite.com/2021/03/15/apollo-md/index.html" title="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;03&#x2F;15&#x2F;apollo-md&#x2F;index.html">http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;03&#x2F;15&#x2F;apollo-md&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2021/03/15/Linux-md/">linux 学习记录<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Apollo分布式配置中心"><span class="toc-text">Apollo分布式配置中心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Apollo核心概念"><span class="toc-text">2.Apollo核心概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Apollo项目管理"><span class="toc-text">3.Apollo项目管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-springboot集成Apollo"><span class="toc-text">4.springboot集成Apollo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Apollo的高可用"><span class="toc-text">5.Apollo的高可用</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=1507127578 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/xinblog "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:1507127578@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">fan</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

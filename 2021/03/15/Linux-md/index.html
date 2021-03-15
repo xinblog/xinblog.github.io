@@ -1,0 +1,749 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>linux 学习记录 - 周瑜的小家园</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Linux学习记录一、Linux基础篇1.Linux介...">
+  <meta name="author" content="周瑜">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '/images/theme/loading.gif'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '/images/theme/welcome-image.jpg',
+          api: ''
+        },
+        motto: {
+          default: '无法让步的有两件事，幸福和周瑜大人。',
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'simple'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+    </div>
+    <div class="center">linux 学习记录</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+
+<nav class="menu">
+  <div class="menu-wrap">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">fan</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">linux 学习记录</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>March 15, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>6416</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h1 id="Linux学习记录"><a href="#Linux学习记录" class="headerlink" title="Linux学习记录"></a>Linux学习记录</h1><h2 id="一、Linux基础篇"><a href="#一、Linux基础篇" class="headerlink" title="一、Linux基础篇"></a>一、Linux基础篇</h2><h3 id="1-Linux介绍"><a href="#1-Linux介绍" class="headerlink" title="1.Linux介绍"></a>1.Linux介绍</h3><ul>
+<li>Linux是一款操作系统，免费，开源，安全，高效，处理高并发非常强悍，现在很多的企业级项目都部署到Linux服务器上。</li>
+</ul>
+<h3 id="2-Linux的目录结构"><a href="#2-Linux的目录结构" class="headerlink" title="2.Linux的目录结构"></a>2.Linux的目录结构</h3><p>​    Linux的文件系统是采用层级式的树状目录结构，在此结构中的最上层是根目录“/”，然后在此目录下在创建其他的目录。</p>
+<p>深刻理解Linux树状文件目录是非常重要的，<strong>在Linux世界中，一切皆文件</strong></p>
+<p><img class="lazyload" data-original="Linux-md/image-20210313133827488.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210313133827488</span></p>
+<ul>
+<li><p>目录结构的具体介绍</p>
+<p><img class="lazyload" data-original="Linux-md/image-20210313133940934.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210313133940934</span></p>
+</li>
+</ul>
+<p><img class="lazyload" data-original="Linux-md/image-20210313134026240.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210313134026240</span></p>
+<p><img class="lazyload" data-original="Linux-md/image-20210313134102561.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210313134102561</span></p>
+<ul>
+<li><h5 id="Linux目录总结"><a href="#Linux目录总结" class="headerlink" title="Linux目录总结"></a>Linux目录总结</h5><ol>
+<li>Linux的目录中有且只有一个根目录/</li>
+<li>Linux的各个目录存放的内容都是规划好的，不能乱放文件</li>
+<li>Linux是以文件的形式管理我们的设备，因此Linux系统，一切皆为文件</li>
+<li>Linux的各个文件目录下存放什么内容，必须要有一个认识</li>
+<li>学习后，脑海中应该有一颗Linux目录树</li>
+</ol>
+</li>
+</ul>
+<h3 id="3-Linux远程操作"><a href="#3-Linux远程操作" class="headerlink" title="3.Linux远程操作"></a>3.Linux远程操作</h3><ul>
+<li>我用Windows10安装Ubuntu桌面子系统每次连接都要重启xrdp服务  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">sudo &#x2F;etc&#x2F;init.d&#x2F;xrdp restart<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-ubuntu设置中文"><a href="#4-ubuntu设置中文" class="headerlink" title="4.ubuntu设置中文"></a>4.ubuntu设置中文</h3><ul>
+<li><p>下载中文语音包</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">sudo apt-get install language-pack-zh-han*<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>设置中文</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">export LC_ALL=zh_CN.UTF-<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>输入locale 将显示出来的内容备份</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cmd">C<br>C.UTF-<span class="hljs-number">8</span><br>en_US.utf8<br>POSIX<br>zh_CN.utf8<br>zh_HK.utf8<br>zh_SG.utf8<br>zh_TW.utf8<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="二、Linux实操篇"><a href="#二、Linux实操篇" class="headerlink" title="二、Linux实操篇"></a>二、Linux实操篇</h2><h3 id="1-使用Xshell远程连接"><a href="#1-使用Xshell远程连接" class="headerlink" title="1.使用Xshell远程连接"></a>1.使用Xshell远程连接</h3><ul>
+<li><p>使用Xshell远程连接,然后发现他说无法连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xshell">Connecting to 192.168.100.104:22...<br>Could not connect to &#39;192.168.100.104&#39; (port 22): Connection failed.<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>ping了一下网络是能ping通的</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-built_in">ping</span> <span class="hljs-number">192</span>.<span class="hljs-number">168</span>.<span class="hljs-number">100</span>.<span class="hljs-number">104</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>然后关闭防火墙说报错</p>
+</li>
+<li><p><img class="lazyload" data-original="Linux-md/image-20210313142208017.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210313142208017</span></p>
+</li>
+<li><p>然后在终端查看ssh进程，输入<code>ps -e|grep ssh</code>，如果有安装<code>openssh-client</code>只会出现<code>ssh -agent</code>，不会出现<code>sshd</code></p>
+<p><img class="lazyload" data-original="Linux-md/image-20210313142133227.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210313142133227</span></p>
+</li>
+<li><p>要想开放本机SSH服务以便其他系统登陆访问，就必须安装<code>openssh-server</code>；在终端中输入<code>sudo apt-get install openssh-server</code>，然后输入自己的<code>root</code>密码就可以了；</p>
+</li>
+</ul>
+<p><img class="lazyload" data-original="Linux-md/image-20210313142323225.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210313142323225</span></p>
+<ul>
+<li><p>然后启动<code>ssh-server</code>服务即可</p>
+<p><img class="lazyload" data-original="Linux-md/image-20210313142538586.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210313142538586</span></p>
+</li>
+<li><p>验证是否开启成功，出现sshd表示开启成功</p>
+<p><img class="lazyload" data-original="Linux-md/image-20210313142626340.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210313142626340</span></p>
+</li>
+<li><p>然后xshell连接又出现密码框为灰色的问题</p>
+<p><img class="lazyload" data-original="Linux-md/image-20210313144601051.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210313144601051</span></p>
+</li>
+<li><p>然后百度说服务器端设置问题，输入vi /etc/ssh/sshd_config修改sshd配置文件（要用root权限修改）将图中的属性改为yes(打开文件输入s进入编辑模式，按Esc退出编辑模式，在末尾输入：wq保存并退出)</p>
+<p><img class="lazyload" data-original="Linux-md/image-20210313150134134.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210313150134134</span></p>
+</li>
+<li><p>然后在重新启动sshd服务</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">sudo /etc/init.d/ssh restart<br></code></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="2-远程上传下载文件Xftp5"><a href="#2-远程上传下载文件Xftp5" class="headerlink" title="2.远程上传下载文件Xftp5"></a>2.远程上传下载文件Xftp5</h3><ul>
+<li>xftp5是一款基于Windows平台的功能强大的SFTP、FTP文件传输软件。使用了Xftp以后，Windows用户能安全的在UNIX/Linux和WindowsPC之间传输文件。</li>
+</ul>
+<h3 id="3-vi-和vim编辑器"><a href="#3-vi-和vim编辑器" class="headerlink" title="3.vi 和vim编辑器"></a>3.vi 和vim编辑器</h3><ul>
+<li><h4 id="vi和vim的三种常用模式"><a href="#vi和vim的三种常用模式" class="headerlink" title="vi和vim的三种常用模式"></a>vi和vim的三种常用模式</h4><ul>
+<li><p>正常模式</p>
+<ul>
+<li>在正常模式下我们可以使用快捷键。以vim打开一个档案就直接进入一般模式了（这是默认的模式）。在这个模式中，你可以使用【上下左右】按键来移动光标，你可以使用【删除字符】和【删除整行】来处理档案内容，也可以使用【复制、粘贴】来处理你的文件数据</li>
+</ul>
+</li>
+<li><p>编辑模式</p>
+<ul>
+<li>在模式下，可以输入内容</li>
+<li>按下i，s等字母后会进入编辑模式，一般来说按i即可</li>
+</ul>
+</li>
+<li><p>命令行模式</p>
+<ul>
+<li>这个模式，可以使用相关命令，完成读取，存盘，替换，离开vim，显示行号等动作</li>
+<li>:q是退出，:wq是保存并退出，:q!是不保存并退出，:wq！是保存并强制退出</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>vi 和 vim快捷键 的使用案例</p>
+<ul>
+<li>拷贝当前行  yy，拷贝当前行向下的n行  nyy，并粘贴(p)</li>
+<li>删除当前行  dd  删除当前行向下的n行 ndd</li>
+<li>在文档中查找某个单词  【命令行下 /关键字，回车查找，输入n查找下一个 N查找上一个】</li>
+<li>设置文件的行号 || 取消文件的行号 【命令行下   :set nu  ||   :set nonu】</li>
+<li>快捷到文档末行  G   首行  gg</li>
+<li>撤销  u  类似于Ctrl+Z</li>
+<li>导航到第N行   shift+g<ul>
+<li>第一步：显示行号:set nu</li>
+<li>第二步：输入n</li>
+<li>第三步：输入Shift+g</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-开机、重启、和用户登录注销"><a href="#4-开机、重启、和用户登录注销" class="headerlink" title="4.开机、重启、和用户登录注销"></a>4.开机、重启、和用户登录注销</h3><ul>
+<li><h5 id="关机-amp-重启命令"><a href="#关机-amp-重启命令" class="headerlink" title="关机&amp;重启命令"></a>关机&amp;重启命令</h5><ul>
+<li><p>shutdown</p>
+<ul>
+<li>shutdown -h now:表示立即关机</li>
+<li>shutdown -h 1：表示一分钟后关机</li>
+<li>shutdown -r now:立即重启</li>
+</ul>
+</li>
+<li><p>halt （直接使用，效果等价于关机）</p>
+</li>
+<li><p>reboot(就是重启系统)</p>
+</li>
+<li><p>syn ：把内存的数据同步到磁盘（我们关机或重启时，先执行，把内存写入磁盘，防止数据丢失）</p>
+</li>
+</ul>
+</li>
+<li><p>用户登录与注销</p>
+<ul>
+<li>登录时尽量少用root账号登录，root是最高权限，避免失误，可以利用普通用户登录，登陆后再用”su -用户名”命令来切换成系统管理员身份</li>
+<li>在提示符下输入logout即可注销用户</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-用户管理"><a href="#5-用户管理" class="headerlink" title="5.用户管理"></a>5.用户管理</h3><h4 id="1-说明"><a href="#1-说明" class="headerlink" title="1.说明"></a>1.说明</h4><ul>
+<li>Linux系统就是一个多用户多任务的操作系统，任何一个要使用系统资源的用户，都必须首先像系统管理员申请一个账号，然后以这个账号的身份进入系统。</li>
+<li>Linux的用户需要至少要属于一个组。</li>
+</ul>
+<h4 id="2-添加用户"><a href="#2-添加用户" class="headerlink" title="2.添加用户"></a>2.添加用户</h4><ul>
+<li>添加用户<ul>
+<li>useradd  –添加用户不用输入密码  注：在Ubuntu下不会创建用户目录，需要用useradd -m</li>
+<li>adduser  –添加用户需要输入密码 在Ubuntu下也会创建用户目录</li>
+<li>useradd -d 目录  新用户：–给新建的用户添加目录 注：在Ubuntu下也不会创建文件夹</li>
+<li>useradd  -g  用户组  用户名 ：–添加用户时指定用户组</li>
+</ul>
+</li>
+<li>passwd  用户名  ：给用户设置密码</li>
+</ul>
+<h4 id="3-删除用户"><a href="#3-删除用户" class="headerlink" title="3.删除用户"></a>3.删除用户</h4><ul>
+<li>userdel  用户名  只删除用户</li>
+<li>userdel  -r  用户名  注：会同用户目录一起删除</li>
+</ul>
+<h4 id="4-查询用户信息"><a href="#4-查询用户信息" class="headerlink" title="4.查询用户信息"></a>4.查询用户信息</h4><ul>
+<li>id  用户名：–查询用户</li>
+</ul>
+<h4 id="5-切换用户"><a href="#5-切换用户" class="headerlink" title="5.切换用户"></a>5.切换用户</h4><ul>
+<li>su -  用户名：–切换用户  </li>
+<li>exit  ：–返回到上一个用户</li>
+<li>注意：从权限高的用户切换到权限低的用户，不需要输入密码，反之需要</li>
+</ul>
+<h4 id="6-用户组-–类似于角色，系统可以对又共性的多个用户统一管理"><a href="#6-用户组-–类似于角色，系统可以对又共性的多个用户统一管理" class="headerlink" title="6.用户组  –类似于角色，系统可以对又共性的多个用户统一管理"></a>6.用户组  –类似于角色，系统可以对又共性的多个用户统一管理</h4><ul>
+<li>groupadd  组名 ：–添加组</li>
+<li>groupdel  组名：–删除组</li>
+<li>usermod  -g  用户组  用户名：–修改用户的组</li>
+</ul>
+<h4 id="7-用户和组的相关文件"><a href="#7-用户和组的相关文件" class="headerlink" title="7.用户和组的相关文件"></a>7.用户和组的相关文件</h4><ul>
+<li>/etc/passwd文件<ul>
+<li>用户的配置文件，记录用户的各种信息<ul>
+<li>每行的含义：用户名：口令：用户标识号：组标识号：注释性描述：主目录：登录shell</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/etc/shadow文件<ul>
+<li>口令的配置文件<ul>
+<li>每行的含义：登录名：加密口令：最后一次修改时间：最小时间间隔：最大时间间隔：警告时间：不活动时间：失效时间：标志</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/etc/group文件<ul>
+<li>组配置文件，记录所有的组信息<ul>
+<li>每行含义：组名：口令：组标识号：组内用户列表</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="8-实用指令（Ubuntu系统不一样）"><a href="#8-实用指令（Ubuntu系统不一样）" class="headerlink" title="8.实用指令（Ubuntu系统不一样）"></a>8.实用指令（Ubuntu系统不一样）</h4><ul>
+<li><p>运行级别说明，常用运行级别是3和5，要修改默认的运行级别可改文件/etc/inittab的id：5：initdefault这一行中的数字</p>
+</li>
+<li><p><img class="lazyload" data-original="Linux-md/image-20210314133707233.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210314133707233</span></p>
+</li>
+<li><p>init[012356] :–切换到指定运行级别</p>
+</li>
+<li><p>面试题：找回root密码</p>
+<ul>
+<li><p><img class="lazyload" data-original="Linux-md/image-20210314135422944.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210314135422944</span></p>
+</li>
+<li><p><img class="lazyload" data-original="Linux-md/image-20210314135503877.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210314135503877</span></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="9-帮助指令"><a href="#9-帮助指令" class="headerlink" title="9.帮助指令"></a>9.帮助指令</h4><ul>
+<li>当我们对某个指令不熟悉时，我们可以使用Linux提供的帮助指令来了解这个指令的使用方法。</li>
+<li>man  命令或配置文件  ：– 获得帮助信息</li>
+<li>help  命令 ： –获得shell内置命令的帮助信息</li>
+</ul>
+<h4 id="10-文件目录类的指令"><a href="#10-文件目录类的指令" class="headerlink" title="10.文件目录类的指令"></a>10.文件目录类的指令</h4><ul>
+<li><p>pwd  :–显示当前目录的绝对路径</p>
+</li>
+<li><p>ls  ：–显示目录  ls -l ：–以列表的方式显示信息  ls -al：–显示所有的文件和目录</p>
+</li>
+<li><p>cd的几种用法</p>
+<ul>
+<li>cd 绝对路径 ：–去到当前路径</li>
+<li>cd&amp;cd~ ：–回到家目录</li>
+<li>cd - 返回上一个工作目录</li>
+<li>cd .. 返回上一级目录</li>
+</ul>
+</li>
+<li><p>mkdir指令用于创建目录</p>
+<ul>
+<li>mkdir  要创建的目录（/home/aa） ：–创建一个目录</li>
+<li>mkdir  -p  要创建的目录（/home/aa/bb）：–创建多级目录</li>
+</ul>
+</li>
+<li><p>rmdir 不能删除非空目录</p>
+<ul>
+<li>rmdir 要删除的目录：–删除一个空目录</li>
+<li>rm -rf 要删除的目录 ：–可以删除非空目录</li>
+</ul>
+</li>
+<li><p>touch 文件名称 ：–创建空文件（可创建多个，用空格隔开）</p>
+</li>
+<li><p>cp指令用法</p>
+<ul>
+<li>cp 要拷贝的文件  粘贴的目录  ：–拷贝单个文件夹</li>
+<li>cp  -r  要拷贝的文件  粘贴的目录 ：–可以拷贝整个文件夹</li>
+<li>\cp  强制覆盖</li>
+</ul>
+</li>
+<li><p>rm删除指令用法</p>
+<ul>
+<li>rm  要删除的文件  ：–删除单个文件</li>
+<li>rm -r  要删除的文件：–可以删除整个文件夹</li>
+<li>rm -f  要删除的文件：–强制删除不提示  不加-r也只能删文件</li>
+</ul>
+</li>
+<li><p>mv移动文件指令用法</p>
+<ul>
+<li>mv  旧文件名  新文件名  ：–将文件重命名</li>
+<li>mv  文件名  要移动的目录  ：–将文件移动到指定的目录下</li>
+</ul>
+</li>
+<li><p>cat指令用法（以只读的方式打开文件）</p>
+<ul>
+<li>cat  要查看的文件 : –查看文件</li>
+<li>cat -n  要查看的文件：–查看文件并显示行号</li>
+<li>cat  -n  要查看的文件 |more  ：–查看文件并分页 按空格翻页</li>
+</ul>
+</li>
+<li><p>more指令（以全屏幕的方式按页显示文本文件的内容）</p>
+<ul>
+<li><img class="lazyload" data-original="Linux-md/image-20210314172646169.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210314172646169</span></li>
+</ul>
+</li>
+<li><p>less指令（跟more效果一样，比more功能强大，不是一次加载全部内容，而是根据显示需要加载内容，对于显示大文件具有较高的效率）</p>
+<ul>
+<li><img class="lazyload" data-original="Linux-md/image-20210314173341001.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210314173341001</span></li>
+</ul>
+</li>
+<li><p>&gt;（输出重定向）  和  &gt;&gt;（追加）指令</p>
+<ul>
+<li>ls -l &gt; 文件  ：–将前面的内容写入到后面的文件中（覆盖写）</li>
+<li>ls -l &gt;&gt; 文件  ：–将前面的内容追加到后面的文件中</li>
+<li>cat 文件1  &gt;  文件2  ：–将文件1的内容覆盖到文件2中</li>
+<li>echo  内容  &gt;&gt;  文件  将内容追加到文件中</li>
+</ul>
+</li>
+<li><p>echo  输出内容 ：输出内容到控制台</p>
+</li>
+<li><p>head指令  head用于显示文件开头部分的内容，默认显示前10行</p>
+<ul>
+<li>head  文件  ：–查看头10行内容</li>
+<li>head -5 文件 ： –查看前五行内容</li>
+</ul>
+</li>
+<li><p>tail指令的用法</p>
+<ul>
+<li>tail  文件  ：–查看文件后10行</li>
+<li>tail -5 文件  ：–查看文件后5行</li>
+<li>tail  -f  文件  ：–实时监控文件 有更新就会看到</li>
+</ul>
+</li>
+<li><p>ln指令（相当于Windows的快捷方式）</p>
+<ul>
+<li>ln  -s  原文件或目录  软链接名  ： –给原文件创建一个软链接相当于快捷方式</li>
+<li>rm -rf  软链接名  ：–删除软链接</li>
+<li>注意 ：我们用软链接去到root目录后，用pwd查看，发现还是在软链接所在的目录<img class="lazyload" data-original="Linux-md/image-20210314190654181.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210314190654181</span></li>
+</ul>
+</li>
+<li><p>history指令用法 （查看历史执行过的指令）</p>
+<ul>
+<li>history  ：–显示所有的历史指令</li>
+<li>history  10 ：–显示最近的10个指令</li>
+<li>！n  ：–执行编号为n的指令（注：是直接执行，不是查看）</li>
+</ul>
+</li>
+</ul>
+<h4 id="11-时间日期类的指令"><a href="#11-时间日期类的指令" class="headerlink" title="11.时间日期类的指令"></a>11.时间日期类的指令</h4><ul>
+<li><p>date时间指令用法</p>
+<ul>
+<li>date  ：–显示当前时间</li>
+<li>date  +%Y  ：–显示当前年份</li>
+<li>date  +%m  ：–显示当前月份</li>
+<li>date  +%d  ：–显示当前是哪一天</li>
+<li>date  “+%Y-%m-%d  %H:%M:%S”  :–显示年月日时分秒</li>
+<li>date  -s  字符串时间  ：–设置系统时间</li>
+</ul>
+</li>
+<li><p>cal日历指令</p>
+<ul>
+<li>cal  ：–显示本月日历</li>
+<li>cal  年份  ：–显示指定年份的日历</li>
+</ul>
+</li>
+</ul>
+<h4 id="12-搜索查找类的指令"><a href="#12-搜索查找类的指令" class="headerlink" title="12.搜索查找类的指令"></a>12.搜索查找类的指令</h4><ul>
+<li><p>find指令用法</p>
+<ul>
+<li>find  搜索范围（不加默认在当前文件夹下）  -name  文件名  ：–查找指定文件名的文件</li>
+<li>find  搜索范围  -user  用户名  ：–查找指定用户名的所有文件</li>
+<li>find   搜索范围  -size  （+/-/等于不写）文件大小（兆：M  KB：k）：–  查找指定文件大小的文件</li>
+</ul>
+</li>
+<li><p>locate指令用法</p>
+<ul>
+<li>介绍：locate数据库实现快速定位给定的文件，查询速度较快</li>
+<li>由于locate指令基于数据库进行查询，所有第一次查询前，必须使用updatedb指令创建locate数据库</li>
+<li>locate  文件名   ：–快速查找指定的文件</li>
+<li>bug记录：当我执行updatedb指令时，弹出下图问题，说未找到命令’updatedb’，但可以与以下命令一起安装：安装第二个个指令就能用了</li>
+<li><img class="lazyload" data-original="Linux-md/image-20210315102900499.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210315102900499</span></li>
+</ul>
+</li>
+<li><p>grep指令和管道符号|</p>
+<ul>
+<li>介绍：grep过滤查找，管道符，”|“：表示将前一个命令的处理结果输出传递给后面的命令处理</li>
+<li>cat  文件名  |  grep  -n  查找的内容   :–打开指定文件名的文件由管道符|交给后面的过滤指令过滤出指定内容并显示行号，不加-n不显示，区分大小写</li>
+<li>cat  文件名  |  grep  -ni  查找的内容   :–打开指定文件名的文件由管道符|交给后面的过滤指令过滤出指定内容并显示行号，不加-n不显示，不区分大小写</li>
+<li><img class="lazyload" data-original="Linux-md/image-20210315104956167.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210315104956167</span></li>
+</ul>
+</li>
+</ul>
+<h4 id="12-压缩和解压缩指令"><a href="#12-压缩和解压缩指令" class="headerlink" title="12.压缩和解压缩指令"></a>12.压缩和解压缩指令</h4><ul>
+<li><p>gzip/gunzip指令  注：使用gzip压缩文件后，不会保留原来的文件</p>
+<ul>
+<li>gzip  文件  ：–压缩文件</li>
+<li>gunzip  文件.gz  : –解压缩文件</li>
+</ul>
+</li>
+<li><p>zip/unzip指令 </p>
+<ul>
+<li>zip  -r（不加只能压缩单个文件） xxx.zip  要压缩的内容  ：–压缩文件和目录</li>
+<li>unzip  -d（不加默认解压到当前目录） 解压的目录   xxx.zip  ：–解压缩文件</li>
+<li>出现下图提示就是没安装zip安装一下就好了</li>
+<li><img class="lazyload" data-original="Linux-md/image-20210315110508195.png" src="/2021/03/15/Linux-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210315110508195</span></li>
+</ul>
+</li>
+<li><p>tar打包指令  打包后的文件是.tar.gz的文件</p>
+<ul>
+<li>tar  -zcvf  xxx.tar.gz  需要打包的文件  ：–打包文件，可以是目录也可以是多个文件</li>
+<li>tar -zxvf  需要解压的文件：–解压文件到当前目录</li>
+<li>tar  -zxvf  需要解压的文件  -C  解压后的目录 ：–解压文件到指定的目录</li>
+</ul>
+</li>
+</ul>
+<h4 id="13-组管理和权限管理（P35）"><a href="#13-组管理和权限管理（P35）" class="headerlink" title="13.组管理和权限管理（P35）"></a>13.组管理和权限管理（P35）</h4>
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>周瑜</li>
+    <li><strong>本文链接：</strong><a href="http://yoursite.com/2021/03/15/Linux-md/index.html" title="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;03&#x2F;15&#x2F;Linux-md&#x2F;index.html">http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;03&#x2F;15&#x2F;Linux-md&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+        
+  <nav class="nav">
+    <a href="/2021/03/15/apollo-md/"><i class="iconfont iconleft"></i>apollo 学习记录</a>
+    <a href="/2021/03/07/Springboot2-md/">SpringBoot 知识汇总<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux学习记录"><span class="toc-text">Linux学习记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Linux基础篇"><span class="toc-text">一、Linux基础篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Linux介绍"><span class="toc-text">1.Linux介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Linux的目录结构"><span class="toc-text">2.Linux的目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Linux远程操作"><span class="toc-text">3.Linux远程操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-ubuntu设置中文"><span class="toc-text">4.ubuntu设置中文</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Linux实操篇"><span class="toc-text">二、Linux实操篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用Xshell远程连接"><span class="toc-text">1.使用Xshell远程连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-远程上传下载文件Xftp5"><span class="toc-text">2.远程上传下载文件Xftp5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-vi-和vim编辑器"><span class="toc-text">3.vi 和vim编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-开机、重启、和用户登录注销"><span class="toc-text">4.开机、重启、和用户登录注销</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-用户管理"><span class="toc-text">5.用户管理</span></a></li></ol></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=1507127578 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/xinblog "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:1507127578@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">fan</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+    <div class="scrollbar j-scrollbar">
+  <div class="scrollbar-current j-scrollbar-current"></div>
+</div>
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
