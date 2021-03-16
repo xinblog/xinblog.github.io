@@ -183,7 +183,7 @@ Feig...">
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>March 16, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>11065</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>11089</span>
     </div>
   </div>
 </section>
@@ -269,7 +269,8 @@ Feig...">
     <span class="attr">instance-id:</span> <span class="string">${spring.cloud.client.ip-address}:${server.port}</span>
   <span class="attr">client:</span>
     <span class="attr">service-url:</span>
-      <span class="attr">defaultZone:</span>  <span class="string">http://localhost:8761/eureka/,http://localhost:8762/eureka/</span>  <span class="comment">#将其分别注册进两个注册中心中</span>
+      <span class="attr">defaultZone:</span>  <span class="string">http://localhost:8761/eureka/,</span>
+      <span class="string">http://localhost:8762/eureka/</span>  <span class="comment">#将其分别注册进两个注册中心中</span>
 <span class="string"><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs groovy"><br>- 编写bean<br><br>  - ```java<br>    <span class="hljs-keyword">package</span> com.feign.serviceprovider.bean;<br>    <br>    <span class="hljs-keyword">import</span> lombok.AllArgsConstructor;<br>    <span class="hljs-keyword">import</span> lombok.Data;<br>    <span class="hljs-keyword">import</span> lombok.NoArgsConstructor;<br>    <br>    <span class="hljs-keyword">import</span> java.io.Serializable;<br>    <span class="hljs-meta">@Data</span><br>    <span class="hljs-meta">@NoArgsConstructor</span><br>    <span class="hljs-meta">@AllArgsConstructor</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Product</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> &#123;</span><br>        <span class="hljs-keyword">private</span> Integer id;<br>        <span class="hljs-keyword">private</span> String productName;<br>        <span class="hljs-keyword">private</span>  Integer productNum;<br>        <span class="hljs-keyword">private</span>  Double productPrice;<br>    <br>    &#125;<br></code></pre></td></tr></table></figure></span></code></pre>
 </li>
 </ul>
@@ -456,7 +457,8 @@ Feig...">
 <ul>
 <li><pre><code class="java"><span class="meta">@Override</span>
 <span class="function"><span class="keyword">public</span> Order <span class="title">selectOrderById</span><span class="params">(Integer id)</span> </span>{
-    <span class="keyword">return</span> <span class="keyword">new</span> Order(id,<span class="string">"order-001"</span>,<span class="string">"中国"</span>,<span class="number">2222.00</span>, Arrays.asList(productService.getProById(<span class="number">5</span>)));
+    <span class="keyword">return</span> <span class="keyword">new</span> Order(id,<span class="string">"order-001"</span>,<span class="string">"中国"</span>,<span class="number">2222.00</span>, 
+    Arrays.asList(productService.getProById(<span class="number">5</span>)));
 }
 &lt;!--￼<span class="number">12</span>--&gt;</code></pre>
 </li>
@@ -488,7 +490,8 @@ Feig...">
 <span class="keyword">return</span> productService.getProByIdPost(id);
 }
 <span class="meta">@PostMapping</span>(<span class="string">"save"</span>)
-<span class="function"><span class="keyword">public</span> Map&lt;Object,Object&gt; <span class="title">save</span><span class="params">(@RequestBody Product product)</span></span>{  <span class="comment">//注意这里要加上@RequestBody注解，不然实现类那里获取不到product的值</span>
+<span class="comment">//注意这里要加上@RequestBody注解，不然实现类那里获取不到product的值</span>
+<span class="function"><span class="keyword">public</span> Map&lt;Object,Object&gt; <span class="title">save</span><span class="params">(@RequestBody Product product)</span></span>{
     <span class="keyword">return</span> productService.createPro(product);
 }
 &lt;!--￼<span class="number">14</span>--&gt;
@@ -536,7 +539,7 @@ Feig...">
 <p><img class="lazyload" data-original="image-20210316134157354.png" src="/2021/03/16/OpenFeign-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210316134157354</span></p>
 </li>
 <li><p>全局配置  –目前无效，原因不详  –添加这个mime-types: “application/xhtml+xml”就好了</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">9090</span><br>  <span class="hljs-attr">compression:</span><br>    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span>   <span class="hljs-comment">#是否开启压缩</span><br>    <span class="hljs-comment">#mime-types：配置压缩支持的类型。默认支持"text/html", "text/xml", "text/plain", "text/css", "text/javascript", "application/javascript", "application/json", "application/xml"</span><br><span class="hljs-comment">#    mime-types:</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yml">  <span class="hljs-attr">server:</span><br>    <span class="hljs-attr">port:</span> <span class="hljs-number">9090</span><br>    <span class="hljs-attr">compression:</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span>   <span class="hljs-comment">#是否开启压缩</span><br>      <span class="hljs-comment">#mime-types：配置压缩支持的类型。默认支持"text/html", </span><br><span class="hljs-string">"text/xml"</span><span class="hljs-string">,</span> <span class="hljs-string">"text/plain"</span><span class="hljs-string">,</span> <span class="hljs-string">"text/css"</span><span class="hljs-string">,</span> <span class="hljs-string">"text/javascript"</span><span class="hljs-string">,</span><br><span class="hljs-string">"application/javascript"</span><span class="hljs-string">,</span> <span class="hljs-string">"application/json"</span><span class="hljs-string">,</span> <span class="hljs-string">"application/xml"</span><br>  <span class="hljs-comment">#    mime-types:</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>局部配置</p>
 <ul>
