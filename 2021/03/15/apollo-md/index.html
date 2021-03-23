@@ -15,11 +15,11 @@
     </title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="shortcut icon" href="/images/logo.svg">
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/css/font-awesome.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"yoursite.com","root":"/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.1"};
+    KEEP.hexo_config = {"hostname":"yoursite.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"无法让步的有两件事，幸福和周瑜大人！"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -31,6 +31,11 @@
         <span class="scroll-progress-bar"></span>
     
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -72,9 +77,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -140,7 +151,19 @@
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.4k Words</span>
+        </span>
     
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>6 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
@@ -161,16 +184,16 @@
 <li><p>启动Apollo配置中心，端口不能被占用</p>
 <ul>
 <li>执行runApollo.bat脚本</li>
-<li><img src="/2021/03/15/apollo-md/image-20210311155701217.png" alt="image-20210311155701217"></li>
+<li><img lazyload src="/images/loading.svg" data-src="image-20210311155701217.png" alt="image-20210311155701217"></li>
 </ul>
 </li>
 <li><p>创建一个Apollo项目</p>
 </li>
-<li><p><img src="/2021/03/15/apollo-md/image-20210311155734407.png" alt="image-20210311155734407"></p>
+<li><p><img lazyload src="/images/loading.svg" data-src="image-20210311155734407.png" alt="image-20210311155734407"></p>
 </li>
 <li><p>创建需要的配置</p>
 </li>
-<li><p><img src="/2021/03/15/apollo-md/image-20210311155841873.png" alt="image-20210311155841873"></p>
+<li><p><img lazyload src="/images/loading.svg" data-src="image-20210311155841873.png" alt="image-20210311155841873"></p>
 </li>
 <li><p>创建完成后用Idea测试，创建一个spring boot项目</p>
 </li>
@@ -192,7 +215,7 @@
 <h6 id="2-environment（环境）"><a href="#2-environment（环境）" class="headerlink" title="2.environment（环境）"></a>2.environment（环境）</h6><p>配置对应的环境，Apollo客户端在运行时需要知道当前应用处于哪个环境，从而可以去获取应用的配置  <strong>关键字：env</strong></p>
 <h6 id="3-cluster（集群）"><a href="#3-cluster（集群）" class="headerlink" title="3.cluster（集群）"></a>3.cluster（集群）</h6><p>一个应用下不同实例的分组，比如典型的可以按照数据中心分。把上海机房的应用实例分为一个集群，把北京机房的应用实例分为另一个集群。  <strong>关键字：cluster</strong></p>
 <h6 id="4-namespace-命名空间"><a href="#4-namespace-命名空间" class="headerlink" title="4.namespace(命名空间)"></a>4.namespace(命名空间)</h6><p>一个应用下不同配置的分组，可以简单的把namespace类比为文件，不同类型的配置放在不同的文件中，如数据库配置文件，RPC配置文件，应用自身的配置文件等。 <strong>关键字：namespace</strong></p>
-<h6 id="他们的关系图："><a href="#他们的关系图：" class="headerlink" title="他们的关系图："></a>他们的关系图：</h6><p><img src="/2021/03/15/apollo-md/image-20210311164008302.png" alt="image-20210311164008302"></p>
+<h6 id="他们的关系图："><a href="#他们的关系图：" class="headerlink" title="他们的关系图："></a>他们的关系图：</h6><p><img lazyload src="/images/loading.svg" data-src="image-20210311164008302.png" alt="image-20210311164008302"></p>
 </li>
 </ul>
 <h3 id="3-Apollo项目管理"><a href="#3-Apollo项目管理" class="headerlink" title="3.Apollo项目管理"></a>3.Apollo项目管理</h3><h4 id="1-基础设置"><a href="#1-基础设置" class="headerlink" title="1.基础设置"></a>1.基础设置</h4><ul>
@@ -200,10 +223,10 @@
 <ul>
 <li>Apollo主页  –&gt;   管理员工具  –&gt;   系统参数</li>
 </ul>
-<p><img src="/2021/03/15/apollo-md/image-20210311170948744.png" alt="image-20210311170948744"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210311170948744.png" alt="image-20210311170948744"></p>
 <ul>
 <li><p>查询配置信息：organizations然后在返回的json数据中添加</p>
-<p><img src="/2021/03/15/apollo-md/image-20210311171256529.png" alt="image-20210311171256529"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210311171256529.png" alt="image-20210311171256529"></p>
 </li>
 </ul>
 </li>
@@ -217,12 +240,12 @@
 </ul>
 </li>
 </ul>
-<h4 id="2-添加Namespace"><a href="#2-添加Namespace" class="headerlink" title="2.添加Namespace"></a>2.添加Namespace</h4><p><img src="/2021/03/15/apollo-md/image-20210311173549047.png" alt="image-20210311173549047"></p>
-<p><img src="/2021/03/15/apollo-md/image-20210311173620947.png" alt="image-20210311173620947"></p>
+<h4 id="2-添加Namespace"><a href="#2-添加Namespace" class="headerlink" title="2.添加Namespace"></a>2.添加Namespace</h4><p><img lazyload src="/images/loading.svg" data-src="image-20210311173549047.png" alt="image-20210311173549047"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210311173620947.png" alt="image-20210311173620947"></p>
 <ul>
 <li><p>快捷导入配置</p>
 <p>复制配置放入文本中</p>
-<p><img src="/2021/03/15/apollo-md/image-20210311173807720.png" alt="image-20210311173807720"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210311173807720.png" alt="image-20210311173807720"></p>
 </li>
 <li><p>获取namespace的配置</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@SpringBootTest</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Project7ApplicationTests</span> </span>&#123;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">contextLoads</span><span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-comment">//        Config appConfig = ConfigService.getAppConfig();  获取默认namespace下的配置信息</span><br>        <span class="hljs-comment">//获取指定namespace下的配置信息</span><br>        Config appConfig =  ConfigService.getConfig(<span class="hljs-string">&quot;apollo-redis&quot;</span>);<br>        <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>)&#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                Thread.sleep(<span class="hljs-number">1000</span>);<br>                String sms = appConfig.getProperty(<span class="hljs-string">&quot;spring.redis.host&quot;</span>, <span class="hljs-keyword">null</span>);<br>                log.info(<span class="hljs-string">&quot;spring.redis.host: &quot;</span>+sms);<br>            &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -280,6 +303,23 @@
         </div>
 
         
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：apollo 学习记录</li>
+        <li>Post author：周瑜</li>
+        <li>Create time：2021-03-15 11:38:55</li>
+        <li>
+            Post link：https://xinblog.github.io/2021/03/15/apollo-md/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
 
         
             <div class="article-nav">
@@ -319,6 +359,85 @@
         
 
         
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'MGx4bJRPnOeuIkSMmXyqahCY-gzGzoHsz',
+                    appKey: 'UqKYYeDXVBDfz5vClRDUgqMb',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '大家一起来讨论吧~',
+                    lang: 'en'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = '周瑜';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
     </div>
 </div>
 
@@ -339,6 +458,20 @@
             2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">周瑜</a>
         </div>
         
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
         <div class="theme-info info-item">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
         </div>
@@ -355,8 +488,16 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
         
     </ul>
 </div>
@@ -409,6 +550,14 @@
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Apollo%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"><span class="nav-number">1.</span> <span class="nav-text">Apollo分布式配置中心</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Apollo%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.Apollo快速开始</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Apollo%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">2.Apollo核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-application-%E5%BA%94%E7%94%A8"><span class="nav-number">1.1.0.0.1.</span> <span class="nav-text">1.application(应用)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-environment%EF%BC%88%E7%8E%AF%E5%A2%83%EF%BC%89"><span class="nav-number">1.1.0.0.2.</span> <span class="nav-text">2.environment（环境）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-cluster%EF%BC%88%E9%9B%86%E7%BE%A4%EF%BC%89"><span class="nav-number">1.1.0.0.3.</span> <span class="nav-text">3.cluster（集群）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-namespace-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-number">1.1.0.0.4.</span> <span class="nav-text">4.namespace(命名空间)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%96%E4%BB%AC%E7%9A%84%E5%85%B3%E7%B3%BB%E5%9B%BE%EF%BC%9A"><span class="nav-number">1.1.0.0.5.</span> <span class="nav-text">他们的关系图：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Apollo%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">3.Apollo项目管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.基础设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%B7%BB%E5%8A%A0Namespace"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.添加Namespace</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-springboot%E9%9B%86%E6%88%90Apollo"><span class="nav-number">2.</span> <span class="nav-text">4.springboot集成Apollo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%BD%BF%E7%94%A8-value%E6%B3%A8%E8%A7%A3%E8%8E%B7%E5%8F%96"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.使用@value注解获取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E9%BB%98%E8%AE%A4namespace%E7%9A%84%E5%80%BC"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">获取默认namespace的值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9Anamespace%E7%9A%84%E5%80%BC"><span class="nav-number">2.0.1.2.</span> <span class="nav-text">获取指定namespace的值</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8bean%E6%B3%A8%E5%85%A5%E7%9A%84%E6%96%B9%E5%BC%8F%E8%8E%B7%E5%8F%96"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.使用bean注入的方式获取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#bean%E6%B3%A8%E5%85%A5%E4%B8%8D%E4%BC%9A%E8%87%AA%E5%8A%A8%E5%88%B7%E6%96%B0%EF%BC%8C%E4%BD%BF%E7%94%A8-RefreshScope%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">bean注入不会自动刷新，使用@RefreshScope注解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bean"><span class="nav-number">2.0.2.2.</span> <span class="nav-text">bean</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E4%BC%9A%E6%8A%A5%E9%94%99-%E8%BF%98%E6%B2%A1%E6%89%BE%E5%88%B0%E5%8E%9F%E5%9B%A0%EF%BC%8C%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B"><span class="nav-number">2.0.2.3.</span> <span class="nav-text">目前会报错 还没找到原因，记录一下</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83"><span class="nav-number">2.0.3.</span> <span class="nav-text">3.灰度发布</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Apollo%E7%9A%84%E9%AB%98%E5%8F%AF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">5.Apollo的高可用</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
@@ -416,22 +565,91 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
 
 
-<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/local-search.js"></script>
 
 
 
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/code-copy.js"></script>
 
 
 
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/lazyload.js"></script>
 
-<div class="post-scripts">
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/toc.js"></script>
     
 </div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

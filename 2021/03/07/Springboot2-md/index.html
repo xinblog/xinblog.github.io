@@ -15,11 +15,11 @@
     </title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="shortcut icon" href="/images/logo.svg">
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/css/font-awesome.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"yoursite.com","root":"/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.1"};
+    KEEP.hexo_config = {"hostname":"yoursite.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"无法让步的有两件事，幸福和周瑜大人！"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -31,6 +31,11 @@
         <span class="scroll-progress-bar"></span>
     
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -72,9 +77,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -140,7 +151,19 @@
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>10.5k Words</span>
+        </span>
     
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>49 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
@@ -191,7 +214,7 @@
 
 
 
-<p><img src="/2021/03/07/Springboot2-md/image-20210224113220654.png" alt="image-20210224113220654"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210224113220654.png" alt="image-20210224113220654"></p>
 <h4 id="2-按需开启自动配置项"><a href="#2-按需开启自动配置项" class="headerlink" title="2.按需开启自动配置项"></a>2.按需开启自动配置项</h4><ol>
 <li><p>虽然我们130个场景的所有自动配置启动的时候默认全部加载。</p>
 </li>
@@ -365,12 +388,12 @@
 
 <ul>
 <li><p>@profile</p>
-<p><img src="/2021/03/07/Springboot2-md/image-20210306164059618.png" alt="image-20210306164059618"></p>
-<p><img src="/2021/03/07/Springboot2-md/image-20210306164012999.png" alt="image-20210306164012999"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210306164059618.png" alt="image-20210306164059618"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210306164012999.png" alt="image-20210306164012999"></p>
 </li>
 </ul>
 <p>@Profile也可以标在配置类上，整个类只有在指定的生产环境下才能生效</p>
-<p><img src="/2021/03/07/Springboot2-md/image-20210306164211980.png" alt="image-20210306164211980"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210306164211980.png" alt="image-20210306164211980"></p>
 <p>命令行激活（可以修改配置文件任意值,以命令行优先）：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">java -jar project1-<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>-SNAPSHOT.jar --spring.profiles.active=prod --person.name=hello<br></code></pre></td></tr></table></figure>
 
@@ -524,7 +547,7 @@
 <ol start="2">
 <li>创建全局配置文件和mapper映射文件</li>
 </ol>
-<p><img src="/2021/03/07/Springboot2-md/image-20210302171737923.png" alt="image-20210302171737923"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210302171737923.png" alt="image-20210302171737923"></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">configuration</span></span><br><span class="hljs-meta">        <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">&quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span></span><br><span class="hljs-meta">        <span class="hljs-meta-string">&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br><br>#全局配置文件<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">mapper</span></span><br><span class="hljs-meta">        <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span><br><span class="hljs-meta">        <span class="hljs-meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">&quot;org.mybatis.example.BlogMapper&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;selectBlog&quot;</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">&quot;Blog&quot;</span>&gt;</span><br>    select * from Blog where id = #&#123;id&#125;<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br><br>#mapper映射文件<br></code></pre></td></tr></table></figure>
@@ -631,7 +654,7 @@
 <p><strong>JUnit Platform</strong>: Junit Platform是在JVM上启动测试框架的基础，不仅支持Junit自制的测试引擎，其他测试引擎也都可以接入。</p>
 <p><strong>JUnit Jupiter</strong>: JUnit Jupiter提供了JUnit5的新的编程模型，是JUnit5新特性的核心。内部 包含了一个<strong>测试引擎</strong>，用于在Junit Platform上运行。</p>
 <p><strong>JUnit Vintage</strong>: 由于JUint已经发展多年，为了照顾老的项目，JUnit Vintage提供了兼容JUnit4.x,Junit3.x的测试引擎。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1354552/1606796395719-eb57ab48-ae44-45e5-8d2e-c4d507aff49a.png" alt="image"></p>
+<p><img lazyload src="/images/loading.svg" data-src="https://cdn.nlark.com/yuque/0/2020/png/1354552/1606796395719-eb57ab48-ae44-45e5-8d2e-c4d507aff49a.png" alt="image"></p>
 <p>注意：</p>
 <p><strong>SpringBoot 2.4 以上版本移除了默认对 Vintage 的依赖。如果需要兼容junit4需要自行引入（不能使用junit4的功能 @Test）</strong></p>
 <p><strong>JUnit 5’s Vintage Engine Removed from</strong> <strong><code>spring-boot-starter-test,如果需要继续兼容junit4需要自行引入vintage</code></strong></p>
@@ -640,7 +663,7 @@
 <p>**<br>**</p>
 </li>
 </ul>
-<p>  <img src="https://cdn.nlark.com/yuque/0/2020/png/1354552/1606797616337-e73010e9-9cac-496d-a177-64b677af5a3d.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_10%2Ctext_YXRndWlndS5jb20g5bCa56GF6LC3%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10" alt="image.png"></p>
+<p>  <img lazyload src="/images/loading.svg" data-src="https://cdn.nlark.com/yuque/0/2020/png/1354552/1606797616337-e73010e9-9cac-496d-a177-64b677af5a3d.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_10%2Ctext_YXRndWlndS5jb20g5bCa56GF6LC3%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10" alt="image.png"></p>
   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>  现在版本：</p>
@@ -796,8 +819,8 @@
 <h2 id="八、指标监控"><a href="#八、指标监控" class="headerlink" title="八、指标监控"></a>八、指标监控</h2><h3 id="1、SpringBoot-Actuator"><a href="#1、SpringBoot-Actuator" class="headerlink" title="1、SpringBoot Actuator"></a>1、SpringBoot Actuator</h3><h4 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h4><p>未来每一个微服务在云上部署以后，我们都需要对其进行监控、追踪、审计、控制等。SpringBoot就抽取了Actuator场景，使得我们每个微服务快速引用即可获得生产级别的应用监控、审计等功能。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1354552/1606886483335-697ee1c1-2f69-43ab-bddc-3a038382319c.png" alt="image.png"></p>
-<h3 id="2、1-x与2-x的不同"><a href="#2、1-x与2-x的不同" class="headerlink" title="2、1.x与2.x的不同"></a>2、1.x与2.x的不同</h3><p><img src="https://cdn.nlark.com/yuque/0/2020/png/1354552/1606884394162-ac7f2d8e-7abb-44df-9998-fb0f2705f238.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_14%2Ctext_YXRndWlndS5jb20g5bCa56GF6LC3%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10" alt="image.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="https://cdn.nlark.com/yuque/0/2020/png/1354552/1606886483335-697ee1c1-2f69-43ab-bddc-3a038382319c.png" alt="image.png"></p>
+<h3 id="2、1-x与2-x的不同"><a href="#2、1-x与2-x的不同" class="headerlink" title="2、1.x与2.x的不同"></a>2、1.x与2.x的不同</h3><p><img lazyload src="/images/loading.svg" data-src="https://cdn.nlark.com/yuque/0/2020/png/1354552/1606884394162-ac7f2d8e-7abb-44df-9998-fb0f2705f238.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_14%2Ctext_YXRndWlndS5jb20g5bCa56GF6LC3%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10" alt="image.png"></p>
 <h3 id="3、如何使用"><a href="#3、如何使用" class="headerlink" title="3、如何使用"></a>3、如何使用</h3><ul>
 <li>引入场景</li>
 <li>访问 <a class="link" target="_blank" rel="noopener" href="http://localhost:8080/actuator/">http://localhost:8080/actuator/<i class="fas fa-external-link-alt"></i></a>**</li>
@@ -832,12 +855,12 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">spring</span><br>  <span class="hljs-attr">boot:</span><br>    <span class="hljs-attr">admin:</span><br>      <span class="hljs-attr">client:</span><br>        <span class="hljs-attr">url:</span> <span class="hljs-string">http://localhost:8081</span> <span class="hljs-comment">#对应服务器端项目的端口</span><br>        <span class="hljs-attr">instance:</span><br>          <span class="hljs-attr">prefer-ip:</span> <span class="hljs-literal">true</span> <span class="hljs-comment">#使用IP注册进来，不然注册进去的会是电脑名字</span><br>  <span class="hljs-attr">application:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">project6</span> <span class="hljs-comment">#表明当前项目名</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>实例化页面</p>
-<p><img src="/2021/03/07/Springboot2-md/image-20210306161026928.png" alt="image-20210306161026928"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210306161026928.png" alt="image-20210306161026928"></p>
 </li>
 <li><p>一个六边形代表一个项目，12m表示运行了12分钟</p>
 </li>
 </ul>
-<p><img src="/2021/03/07/Springboot2-md/image-20210306161052856.png" alt="image-20210306161052856"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210306161052856.png" alt="image-20210306161052856"></p>
 <h3 id="2、Actuator-Endpoint"><a href="#2、Actuator-Endpoint" class="headerlink" title="2、Actuator Endpoint"></a>2、Actuator Endpoint</h3><h4 id="1、最常使用的端点"><a href="#1、最常使用的端点" class="headerlink" title="1、最常使用的端点"></a>1、最常使用的端点</h4><table>
 <thead>
 <tr>
@@ -971,14 +994,14 @@
 
 </li>
 </ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1354552/1606908975702-4f9a3208-15ca-4a78-9f76-939ef986db7e.png" alt="image.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="https://cdn.nlark.com/yuque/0/2020/png/1354552/1606908975702-4f9a3208-15ca-4a78-9f76-939ef986db7e.png" alt="image.png"></p>
 <h3 id="3、Metrics-Endpoint"><a href="#3、Metrics-Endpoint" class="headerlink" title="3、Metrics Endpoint"></a>3、Metrics Endpoint</h3><p>提供详细的、层级的、空间指标信息，这些信息可以被pull（主动推送）或者push（被动获取）方式得到；</p>
 <ul>
 <li>通过Metrics对接多种监控系统</li>
 <li>简化核心Metrics开发</li>
 <li>添加自定义Metrics或者扩展已有Metrics</li>
 </ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1354552/1606909073222-c6e77ca3-4b1c-4f38-a1c6-8614dec4f7bc.png" alt="image.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="https://cdn.nlark.com/yuque/0/2020/png/1354552/1606909073222-c6e77ca3-4b1c-4f38-a1c6-8614dec4f7bc.png" alt="image.png"></p>
 <h3 id="4、管理Endpoints"><a href="#4、管理Endpoints" class="headerlink" title="4、管理Endpoints"></a>4、管理Endpoints</h3><h4 id="1、开启与禁用Endpoints"><a href="#1、开启与禁用Endpoints" class="headerlink" title="1、开启与禁用Endpoints"></a>1、开启与禁用Endpoints</h4><ul>
 <li>默认所有的Endpoint除过shutdown都是开启的。</li>
 <li>需要开启或者禁用某个Endpoint。配置模式为  <strong>management.endpoint.**</strong><endpointName><strong>**.enabled = true</strong></endpointName></li>
@@ -1131,7 +1154,7 @@
 </tbody></table>
 <h3 id="3-定制化Endpoints"><a href="#3-定制化Endpoints" class="headerlink" title="3.定制化Endpoints"></a>3.定制化Endpoints</h3><h4 id="1-定制health信息"><a href="#1-定制health信息" class="headerlink" title="1.定制health信息"></a>1.定制health信息</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyHealthIndicator</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractHealthIndicator</span> </span>&#123;<br>    <span class="hljs-meta">@Autowired</span><br>    StringRedisTemplate stringRedisTemplate;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 真实的检查方法</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> builder</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@throws</span> Exception</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doHealthCheck</span><span class="hljs-params">(Health.Builder builder)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        Map&lt;String,Object&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>        <span class="hljs-keyword">if</span>(stringRedisTemplate!=<span class="hljs-keyword">null</span>)&#123;<br>            builder.status(Status.UP); <span class="hljs-comment">//健康</span><br>            map.put(<span class="hljs-string">&quot;msg&quot;</span>,<span class="hljs-string">&quot;redis导入成功&quot;</span>);<br>        &#125;<span class="hljs-keyword">else</span> &#123;<br>            builder.status(Status.DOWN); <span class="hljs-comment">//不健康</span><br>            map.put(<span class="hljs-string">&quot;error&quot;</span>,<span class="hljs-string">&quot;redis导入失败&quot;</span>);<br>        &#125;<br>        builder.withDetail(<span class="hljs-string">&quot;code&quot;</span>,<span class="hljs-string">&quot;100&quot;</span>);<br>        builder.withDetails(map);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2021/03/07/Springboot2-md/image-20210305163341673.png" alt="image-20210305163341673"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210305163341673.png" alt="image-20210305163341673"></p>
 <h4 id="2-定制info"><a href="#2-定制info" class="headerlink" title="2.定制info"></a>2.定制info</h4><ul>
 <li><p>yaml配置文件方式</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">info:</span><br>  <span class="hljs-attr">appName:</span> <span class="hljs-string">Project6</span><br>  <span class="hljs-attr">hello:</span> <span class="hljs-string">world</span><br>  <span class="hljs-attr">mavenProjectName:</span> <span class="hljs-string">@project.artifactId@</span> <span class="hljs-comment">#使用@@可以获取maven的pom文件值</span><br>  <span class="hljs-attr">mavenVersoin:</span> <span class="hljs-string">@project.version@</span><br></code></pre></td></tr></table></figure>
@@ -1140,7 +1163,7 @@
 
 </li>
 </ul>
-<p>  <img src="/2021/03/07/Springboot2-md/image-20210305164109087.png" alt="image-20210305164109087"></p>
+<p>  <img lazyload src="/images/loading.svg" data-src="image-20210305164109087.png" alt="image-20210305164109087"></p>
 <ul>
 <li><p>配置类方式</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppInfoInfoContributor</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">InfoContributor</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">contribute</span><span class="hljs-params">(Info.Builder builder)</span> </span>&#123;<br>        builder.withDetail(<span class="hljs-string">&quot;redis实例&quot;</span>,<span class="hljs-string">&quot;redis实例化成功&quot;</span>)<br>                .withDetail(<span class="hljs-string">&quot;Redis工厂类型&quot;</span>,<span class="hljs-string">&quot;jedis&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -1149,25 +1172,25 @@
 
 </li>
 </ul>
-<p><img src="/2021/03/07/Springboot2-md/image-20210305165010088.png" alt="image-20210305165010088"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210305165010088.png" alt="image-20210305165010088"></p>
 <h4 id="3-定制Metrics信息"><a href="#3-定制Metrics信息" class="headerlink" title="3.定制Metrics信息"></a>3.定制Metrics信息</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CityServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">CityService</span> </span>&#123;<br><br>    <span class="hljs-meta">@Autowired</span><br>    CityMapper cityMapper;<br><br>    Counter counter;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">CityServiceImpl</span><span class="hljs-params">(MeterRegistry meterRegistry)</span></span>&#123;<br>        counter  = meterRegistry.counter(<span class="hljs-string">&quot;CityServiceImpl.getCity.count&quot;</span>);<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> City <span class="hljs-title">getCity</span><span class="hljs-params">()</span> </span>&#123;<br>        counter.increment();<br>        <span class="hljs-keyword">return</span> cityMapper.getCity();<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/2021/03/07/Springboot2-md/image-20210305172444444.png" alt="image-20210305172444444"></p>
-<p><img src="/2021/03/07/Springboot2-md/image-20210305172528503.png" alt="image-20210305172528503"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210305172444444.png" alt="image-20210305172444444"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210305172528503.png" alt="image-20210305172528503"></p>
 <h4 id="4-定制Endpoint"><a href="#4-定制Endpoint" class="headerlink" title="4.定制Endpoint"></a>4.定制Endpoint</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@Endpoint(id = &quot;myService&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyServiceEndPoint</span> </span>&#123;<br>    <span class="hljs-meta">@Autowired</span><br>    CityService cityService;<br>    <span class="hljs-meta">@ReadOperation</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getCity</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> cityService.getCity();<br>    &#125;<br>    <span class="hljs-meta">@WriteOperation</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">stopCity</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;停止访问&quot;</span>);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
-<p><img src="/2021/03/07/Springboot2-md/image-20210305174312947.png" alt="image-20210305174312947"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210305174312947.png" alt="image-20210305174312947"></p>
 <h2 id="九、自定义Starter"><a href="#九、自定义Starter" class="headerlink" title="九、自定义Starter"></a>九、自定义Starter</h2><ol>
 <li><strong>创建一个空工程</strong></li>
 </ol>
-<p><img src="/2021/03/07/Springboot2-md/image-20210307151543012.png" alt="image-20210307151543012"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210307151543012.png" alt="image-20210307151543012"></p>
 <ol start="2">
 <li><p><strong>在工厂中创建两个模块</strong></p>
 <ul>
 <li>上面是maven模块来编写场景启动器，给别人引用 /下面是springboot模块负责编写自动配置相关的东西。</li>
-<li><img src="/2021/03/07/Springboot2-md/image-20210307151637497.png" alt="image-20210307151637497"></li>
+<li><img lazyload src="/images/loading.svg" data-src="image-20210307151637497.png" alt="image-20210307151637497"></li>
 </ul>
 </li>
 <li><p><strong>在场景启动器中引入自动配置的依赖</strong></p>
@@ -1183,7 +1206,7 @@
 
 <ul>
 <li><p>删掉项目里没有的类和配置文件（蓝色背景的都删除）</p>
-<p><img src="/2021/03/07/Springboot2-md/image-20210307152926353.png" alt="image-20210307152926353"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210307152926353.png" alt="image-20210307152926353"></p>
 </li>
 </ul>
 <ol start="5">
@@ -1214,13 +1237,13 @@
 </ul>
 <ol start="6">
 <li><p><strong>编写META-INF/spring.factories中EnableAutoConfiguration 的值，使得项目启动加载指定的自动配置类**</strong></p>
-<p><img src="/2021/03/07/Springboot2-md/image-20210307165820513.png" alt="image-20210307165820513"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210307165820513.png" alt="image-20210307165820513"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs factories"># Auto Configure<br>org.springframework.boot.autoconfigure.EnableAutoConfiguration&#x3D;\<br>com.project.auto.PostServiceAutoConfiguration<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><strong>将模块安装到maven目录中先安装自动装配模块</strong></p>
 </li>
 </ol>
-<p><img src="/2021/03/07/Springboot2-md/image-20210307165949877.png" alt="image-20210307165949877"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210307165949877.png" alt="image-20210307165949877"></p>
 <ol start="8">
 <li><p><strong>在新项目中引入自定义的Starter</strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.project<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>project-hello-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
@@ -1233,12 +1256,29 @@
 </ol>
 <ul>
 <li><p>效果</p>
-<p><img src="/2021/03/07/Springboot2-md/image-20210307170517495.png" alt="image-20210307170517495"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210307170517495.png" alt="image-20210307170517495"></p>
 </li>
 </ul>
 <h2 id="十、SpringBoot原理（以后再看）"><a href="#十、SpringBoot原理（以后再看）" class="headerlink" title="十、SpringBoot原理（以后再看）"></a>十、SpringBoot原理（以后再看）</h2>
         </div>
 
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：SpringBoot 知识汇总</li>
+        <li>Post author：周瑜</li>
+        <li>Create time：2021-03-07 18:25:55</li>
+        <li>
+            Post link：https://xinblog.github.io/2021/03/07/Springboot2-md/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
         
 
         
@@ -1279,6 +1319,85 @@
         
 
         
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'MGx4bJRPnOeuIkSMmXyqahCY-gzGzoHsz',
+                    appKey: 'UqKYYeDXVBDfz5vClRDUgqMb',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '大家一起来讨论吧~',
+                    lang: 'en'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = '周瑜';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
     </div>
 </div>
 
@@ -1299,6 +1418,20 @@
             2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">周瑜</a>
         </div>
         
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
         <div class="theme-info info-item">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
         </div>
@@ -1315,8 +1448,16 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
         
     </ul>
 </div>
@@ -1369,6 +1510,14 @@
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80-%E5%AE%B9%E5%99%A8%E5%8A%9F%E8%83%BD"><span class="nav-number">1.</span> <span class="nav-text">一.容器功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%BA%95%E5%B1%82%E6%B3%A8%E8%A7%A3-Configuration%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.1.</span> <span class="nav-text">1.底层注解@Configuration详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E6%88%98%E4%BD%9C%E7%94%A8"><span class="nav-number">1.2.</span> <span class="nav-text">实战作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Import%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.3.</span> <span class="nav-text">2.@Import注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Conditional"><span class="nav-number">1.4.</span> <span class="nav-text">3.@Conditional</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-ImportResource"><span class="nav-number">1.5.</span> <span class="nav-text">4.@ImportResource</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E9%85%8D%E7%BD%AE%E7%BB%91%E5%AE%9A"><span class="nav-number">1.6.</span> <span class="nav-text">5.配置绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%881%EF%BC%89-Component-ConfigurationProperties"><span class="nav-number">1.6.1.</span> <span class="nav-text">（1）@Component  +  @ConfigurationProperties</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%882%EF%BC%89-ConfigurationProperties-EnableConfigurationProperties"><span class="nav-number">1.6.2.</span> <span class="nav-text">（2）@ConfigurationProperties  +  @EnableConfigurationProperties</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C-%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">二.自动配置原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%BC%95%E5%AF%BC%E5%8A%A0%E8%BD%BD%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="nav-number">2.1.</span> <span class="nav-text">1.引导加载自动配置类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-SpringBootApplication%E7%94%B1%E4%B8%8B%E9%9D%A2%E5%87%A0%E4%B8%AA%E6%B3%A8%E8%A7%A3%E7%BB%84%E6%88%90"><span class="nav-number">2.1.1.</span> <span class="nav-text">(1)SpringBootApplication由下面几个注解组成</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%881-3%EF%BC%89-EnableAutoConfiguration"><span class="nav-number">2.1.2.</span> <span class="nav-text">（1.3）@EnableAutoConfiguration</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%8C%89%E9%9C%80%E5%BC%80%E5%90%AF%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E9%A1%B9"><span class="nav-number">2.2.</span> <span class="nav-text">2.按需开启自动配置项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE"><span class="nav-number">2.3.</span> <span class="nav-text">3.修改默认配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">2.4.</span> <span class="nav-text">4.最佳实践</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%BC%80%E5%8F%91%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="nav-number">3.</span> <span class="nav-text">三、开发小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Lombok"><span class="nav-number">3.1.</span> <span class="nav-text">1.Lombok</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">四、配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#springboot%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E5%85%A8%E5%B1%80%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%8C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%90%8D%E6%98%AF%E5%9B%BA%E5%AE%9A%E7%9A%84%EF%BC%8C%E6%9C%89%E4%B8%A4%E7%A7%8D%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.0.1.</span> <span class="nav-text">springboot使用一个全局的配置文件，配置文件名是固定的，有两种格式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#yaml%E8%AF%AD%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">yaml语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">1.基本语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%80%BC%E7%9A%84%E5%86%99%E6%B3%95"><span class="nav-number">4.3.</span> <span class="nav-text">2.值的写法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F%EF%BC%9A%E6%99%AE%E9%80%9A%E7%9A%84%E5%80%BC%EF%BC%88%E6%95%B0%E5%AD%97%EF%BC%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E5%B8%83%E5%B0%94%EF%BC%89"><span class="nav-number">4.3.1.</span> <span class="nav-text">字面量：普通的值（数字，字符串，布尔）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E3%80%81Map%EF%BC%88%E5%B1%9E%E6%80%A7%E5%92%8C%E5%80%BC%EF%BC%89%EF%BC%88%E9%94%AE%E5%80%BC%E5%AF%B9%EF%BC%89%EF%BC%9A"><span class="nav-number">4.3.2.</span> <span class="nav-text">对象、Map（属性和值）（键值对）：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%EF%BC%88List-Set"><span class="nav-number">4.3.3.</span> <span class="nav-text">数组（List,Set)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%B3%A8%E5%85%A5"><span class="nav-number">4.4.</span> <span class="nav-text">3.配置文件注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ConfigurationProperties%E5%92%8C-value%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.5.</span> <span class="nav-text">@ConfigurationProperties和@value的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE%E6%A3%80%E9%AA%8C"><span class="nav-number">4.6.</span> <span class="nav-text">3.配置文件数据检验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-PropertySource-ImportResource"><span class="nav-number">4.7.</span> <span class="nav-text">4.@PropertySource&#x2F;ImportResource</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8D%A0%E4%BD%8D%E7%AC%A6"><span class="nav-number">4.8.</span> <span class="nav-text">5.配置文件占位符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Profile"><span class="nav-number">4.9.</span> <span class="nav-text">6.Profile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E5%A4%96%E9%83%A8%E9%85%8D%E7%BD%AE%E5%8A%A0%E8%BD%BD%E9%A1%BA%E5%BA%8F"><span class="nav-number">4.10.</span> <span class="nav-text">8.外部配置加载顺序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81web%E5%BC%80%E5%8F%91%EF%BC%88%E6%BA%90%E7%A0%81%E4%BB%A5%E5%90%8E%E5%86%8D%E7%9C%8B%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">五、web开发（源码以后再看）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81SpringMVC%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E6%A6%82%E8%A7%88"><span class="nav-number">5.1.</span> <span class="nav-text">1、SpringMVC自动配置概览</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%AE%80%E5%8D%95%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90"><span class="nav-number"></span> <span class="nav-text">2.简单功能分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE"><span class="nav-number">1.</span> <span class="nav-text">2.1静态资源访问</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">静态资源目录</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E5%89%8D%E7%BC%80"><span class="nav-number">1.0.1.</span> <span class="nav-text">静态资源访问前缀</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webjar"><span class="nav-number">1.0.2.</span> <span class="nav-text">webjar</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2%E3%80%81%E6%AC%A2%E8%BF%8E%E9%A1%B5%E6%94%AF%E6%8C%81"><span class="nav-number">2.</span> <span class="nav-text">2.2、欢迎页支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89-Favicon"><span class="nav-number">3.</span> <span class="nav-text">2.3、自定义 Favicon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4%E3%80%81%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">2.4、静态资源配置原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E5%A4%84%E7%90%86"><span class="nav-number"></span> <span class="nav-text">3、请求参数处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81rest%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">1、rest使用与原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="nav-number">2.</span> <span class="nav-text">5.文件上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">6.异常处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Web%E5%8E%9F%E7%94%9F%E7%BB%84%E4%BB%B6%E6%B3%A8%E5%85%A5%EF%BC%88servlet%EF%BC%8CFilter%EF%BC%8CListener%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">7.Web原生组件注入（servlet，Filter，Listener）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE"><span class="nav-number"></span> <span class="nav-text">六、数据访问</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%95%B4%E5%90%88druid%E6%95%B0%E6%8D%AE%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">1.整合druid数据源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">1.1自定义方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2%E4%BD%BF%E7%94%A8%E5%AE%98%E6%96%B9starter%E6%96%B9%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">1.2使用官方starter方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%95%B4%E5%90%88Mybatis"><span class="nav-number">2.</span> <span class="nav-text">2.整合Mybatis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1%E3%80%81%E9%85%8D%E7%BD%AE%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">2.1、配置模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%95%B4%E5%90%88Mybatis-Plus"><span class="nav-number">3.</span> <span class="nav-text">3、整合Mybatis-Plus</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#service"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">service</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#serviceImpl"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">serviceImpl</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%95%B4%E5%90%88Redis"><span class="nav-number">4.</span> <span class="nav-text">4.整合Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD"><span class="nav-number">4.1.</span> <span class="nav-text">2.使用redis实现统计功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="nav-number"></span> <span class="nav-text">七、单元测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81JUnit5-%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">1、JUnit5 的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81JUnit5%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">2、JUnit5常用注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%96%AD%E8%A8%80%EF%BC%88assertions%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">3、断言（assertions）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E7%AE%80%E5%8D%95%E6%96%AD%E8%A8%80"><span class="nav-number">3.1.</span> <span class="nav-text">1、简单断言</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%95%B0%E7%BB%84%E6%96%AD%E8%A8%80"><span class="nav-number">4.</span> <span class="nav-text">2、数组断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E7%BB%84%E5%90%88%E6%96%AD%E8%A8%80"><span class="nav-number">5.</span> <span class="nav-text">3、组合断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%BC%82%E5%B8%B8%E6%96%AD%E8%A8%80"><span class="nav-number">6.</span> <span class="nav-text">4、异常断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E8%B6%85%E6%97%B6%E6%96%AD%E8%A8%80"><span class="nav-number">7.</span> <span class="nav-text">5、超时断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E5%BF%AB%E9%80%9F%E5%A4%B1%E8%B4%A5"><span class="nav-number">8.</span> <span class="nav-text">6、快速失败</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%EF%BC%88assumptions%EF%BC%89"><span class="nav-number">9.</span> <span class="nav-text">4、前置条件（assumptions）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E5%B5%8C%E5%A5%97%E6%B5%8B%E8%AF%95"><span class="nav-number">10.</span> <span class="nav-text">5、嵌套测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E5%8F%82%E6%95%B0%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="nav-number">11.</span> <span class="nav-text">6、参数化测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E8%BF%81%E7%A7%BB%E6%8C%87%E5%8D%97"><span class="nav-number">12.</span> <span class="nav-text">7、迁移指南</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E6%8C%87%E6%A0%87%E7%9B%91%E6%8E%A7"><span class="nav-number"></span> <span class="nav-text">八、指标监控</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81SpringBoot-Actuator"><span class="nav-number">1.</span> <span class="nav-text">1、SpringBoot Actuator</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1、简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%811-x%E4%B8%8E2-x%E7%9A%84%E4%B8%8D%E5%90%8C"><span class="nav-number">2.</span> <span class="nav-text">2、1.x与2.x的不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">3、如何使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">4、可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81Actuator-Endpoint"><span class="nav-number">5.</span> <span class="nav-text">2、Actuator Endpoint</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E6%9C%80%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AB%AF%E7%82%B9"><span class="nav-number">5.1.</span> <span class="nav-text">1、最常使用的端点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81Health-Endpoint"><span class="nav-number">6.</span> <span class="nav-text">2、Health Endpoint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81Metrics-Endpoint"><span class="nav-number">7.</span> <span class="nav-text">3、Metrics Endpoint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E7%AE%A1%E7%90%86Endpoints"><span class="nav-number">8.</span> <span class="nav-text">4、管理Endpoints</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E5%BC%80%E5%90%AF%E4%B8%8E%E7%A6%81%E7%94%A8Endpoints"><span class="nav-number">8.1.</span> <span class="nav-text">1、开启与禁用Endpoints</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%9A%B4%E9%9C%B2Endpoints"><span class="nav-number">9.</span> <span class="nav-text">2、暴露Endpoints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AE%9A%E5%88%B6%E5%8C%96Endpoints"><span class="nav-number">10.</span> <span class="nav-text">3.定制化Endpoints</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AE%9A%E5%88%B6health%E4%BF%A1%E6%81%AF"><span class="nav-number">10.1.</span> <span class="nav-text">1.定制health信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%AE%9A%E5%88%B6info"><span class="nav-number">10.2.</span> <span class="nav-text">2.定制info</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%AE%9A%E5%88%B6Metrics%E4%BF%A1%E6%81%AF"><span class="nav-number">10.3.</span> <span class="nav-text">3.定制Metrics信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%AE%9A%E5%88%B6Endpoint"><span class="nav-number">10.4.</span> <span class="nav-text">4.定制Endpoint</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89Starter"><span class="nav-number"></span> <span class="nav-text">九、自定义Starter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81SpringBoot%E5%8E%9F%E7%90%86%EF%BC%88%E4%BB%A5%E5%90%8E%E5%86%8D%E7%9C%8B%EF%BC%89"><span class="nav-number"></span> <span class="nav-text">十、SpringBoot原理（以后再看）</span></a>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
@@ -1376,22 +1525,91 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
 
 
-<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/local-search.js"></script>
 
 
 
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/code-copy.js"></script>
 
 
 
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/lazyload.js"></script>
 
-<div class="post-scripts">
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/toc.js"></script>
     
 </div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

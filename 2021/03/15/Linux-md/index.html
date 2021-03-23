@@ -15,11 +15,11 @@
     </title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="shortcut icon" href="/images/logo.svg">
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/css/font-awesome.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"yoursite.com","root":"/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.1"};
+    KEEP.hexo_config = {"hostname":"yoursite.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"无法让步的有两件事，幸福和周瑜大人！"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -31,6 +31,11 @@
         <span class="scroll-progress-bar"></span>
     
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -72,9 +77,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -140,7 +151,19 @@
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.4k Words</span>
+        </span>
     
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>12 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
@@ -155,14 +178,14 @@
 </ul>
 <h3 id="2-Linux的目录结构"><a href="#2-Linux的目录结构" class="headerlink" title="2.Linux的目录结构"></a>2.Linux的目录结构</h3><p>​    Linux的文件系统是采用层级式的树状目录结构，在此结构中的最上层是根目录“/”，然后在此目录下在创建其他的目录。</p>
 <p>深刻理解Linux树状文件目录是非常重要的，<strong>在Linux世界中，一切皆文件</strong></p>
-<p><img src="/2021/03/15/Linux-md/image-20210313133827488.png" alt="image-20210313133827488"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210313133827488.png" alt="image-20210313133827488"></p>
 <ul>
 <li><p>目录结构的具体介绍</p>
-<p><img src="/2021/03/15/Linux-md/image-20210313133940934.png" alt="image-20210313133940934"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210313133940934.png" alt="image-20210313133940934"></p>
 </li>
 </ul>
-<p><img src="/2021/03/15/Linux-md/image-20210313134026240.png" alt="image-20210313134026240"></p>
-<p><img src="/2021/03/15/Linux-md/image-20210313134102561.png" alt="image-20210313134102561"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210313134026240.png" alt="image-20210313134026240"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210313134102561.png" alt="image-20210313134102561"></p>
 <ul>
 <li><h5 id="Linux目录总结"><a href="#Linux目录总结" class="headerlink" title="Linux目录总结"></a>Linux目录总结</h5><ol>
 <li>Linux的目录中有且只有一个根目录/</li>
@@ -199,27 +222,27 @@
 </li>
 <li><p>然后关闭防火墙说报错</p>
 </li>
-<li><p><img src="/2021/03/15/Linux-md/image-20210313142208017.png" alt="image-20210313142208017"></p>
+<li><p><img lazyload src="/images/loading.svg" data-src="image-20210313142208017.png" alt="image-20210313142208017"></p>
 </li>
 <li><p>然后在终端查看ssh进程，输入<code>ps -e|grep ssh</code>，如果有安装<code>openssh-client</code>只会出现<code>ssh -agent</code>，不会出现<code>sshd</code></p>
-<p><img src="/2021/03/15/Linux-md/image-20210313142133227.png" alt="image-20210313142133227"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210313142133227.png" alt="image-20210313142133227"></p>
 </li>
 <li><p>要想开放本机SSH服务以便其他系统登陆访问，就必须安装<code>openssh-server</code>；在终端中输入<code>sudo apt-get install openssh-server</code>，然后输入自己的<code>root</code>密码就可以了；</p>
 </li>
 </ul>
-<p><img src="/2021/03/15/Linux-md/image-20210313142323225.png" alt="image-20210313142323225"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210313142323225.png" alt="image-20210313142323225"></p>
 <ul>
 <li><p>然后启动<code>ssh-server</code>服务即可</p>
-<p><img src="/2021/03/15/Linux-md/image-20210313142538586.png" alt="image-20210313142538586"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210313142538586.png" alt="image-20210313142538586"></p>
 </li>
 <li><p>验证是否开启成功，出现sshd表示开启成功</p>
-<p><img src="/2021/03/15/Linux-md/image-20210313142626340.png" alt="image-20210313142626340"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210313142626340.png" alt="image-20210313142626340"></p>
 </li>
 <li><p>然后xshell连接又出现密码框为灰色的问题</p>
-<p><img src="/2021/03/15/Linux-md/image-20210313144601051.png" alt="image-20210313144601051"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210313144601051.png" alt="image-20210313144601051"></p>
 </li>
 <li><p>然后百度说服务器端设置问题，输入vi /etc/ssh/sshd_config修改sshd配置文件（要用root权限修改）将图中的属性改为yes(打开文件输入s进入编辑模式，按Esc退出编辑模式，在末尾输入：wq保存并退出)</p>
-<p><img src="/2021/03/15/Linux-md/image-20210313150134134.png" alt="image-20210313150134134"></p>
+<p><img lazyload src="/images/loading.svg" data-src="image-20210313150134134.png" alt="image-20210313150134134"></p>
 </li>
 <li><p>然后在重新启动sshd服务</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">sudo /etc/init.d/ssh restart<br></code></pre></td></tr></table></figure>
@@ -349,15 +372,15 @@
 <h4 id="8-实用指令（Ubuntu系统不一样）"><a href="#8-实用指令（Ubuntu系统不一样）" class="headerlink" title="8.实用指令（Ubuntu系统不一样）"></a>8.实用指令（Ubuntu系统不一样）</h4><ul>
 <li><p>运行级别说明，常用运行级别是3和5，要修改默认的运行级别可改文件/etc/inittab的id：5：initdefault这一行中的数字</p>
 </li>
-<li><p><img src="/2021/03/15/Linux-md/image-20210314133707233.png" alt="image-20210314133707233"></p>
+<li><p><img lazyload src="/images/loading.svg" data-src="image-20210314133707233.png" alt="image-20210314133707233"></p>
 </li>
 <li><p>init[012356] :–切换到指定运行级别</p>
 </li>
 <li><p>面试题：找回root密码</p>
 <ul>
-<li><p><img src="/2021/03/15/Linux-md/image-20210314135422944.png" alt="image-20210314135422944"></p>
+<li><p><img lazyload src="/images/loading.svg" data-src="image-20210314135422944.png" alt="image-20210314135422944"></p>
 </li>
-<li><p><img src="/2021/03/15/Linux-md/image-20210314135503877.png" alt="image-20210314135503877"></p>
+<li><p><img lazyload src="/images/loading.svg" data-src="image-20210314135503877.png" alt="image-20210314135503877"></p>
 </li>
 </ul>
 </li>
@@ -423,12 +446,12 @@
 </li>
 <li><p>more指令（以全屏幕的方式按页显示文本文件的内容）</p>
 <ul>
-<li><img src="/2021/03/15/Linux-md/image-20210314172646169.png" alt="image-20210314172646169"></li>
+<li><img lazyload src="/images/loading.svg" data-src="image-20210314172646169.png" alt="image-20210314172646169"></li>
 </ul>
 </li>
 <li><p>less指令（跟more效果一样，比more功能强大，不是一次加载全部内容，而是根据显示需要加载内容，对于显示大文件具有较高的效率）</p>
 <ul>
-<li><img src="/2021/03/15/Linux-md/image-20210314173341001.png" alt="image-20210314173341001"></li>
+<li><img lazyload src="/images/loading.svg" data-src="image-20210314173341001.png" alt="image-20210314173341001"></li>
 </ul>
 </li>
 <li><p>&gt;（输出重定向）  和  &gt;&gt;（追加）指令</p>
@@ -458,7 +481,7 @@
 <ul>
 <li>ln  -s  原文件或目录  软链接名  ： –给原文件创建一个软链接相当于快捷方式</li>
 <li>rm -rf  软链接名  ：–删除软链接</li>
-<li>注意 ：我们用软链接去到root目录后，用pwd查看，发现还是在软链接所在的目录<img src="/2021/03/15/Linux-md/image-20210314190654181.png" alt="image-20210314190654181"></li>
+<li>注意 ：我们用软链接去到root目录后，用pwd查看，发现还是在软链接所在的目录<img lazyload src="/images/loading.svg" data-src="image-20210314190654181.png" alt="image-20210314190654181"></li>
 </ul>
 </li>
 <li><p>history指令用法 （查看历史执行过的指令）</p>
@@ -501,7 +524,7 @@
 <li>由于locate指令基于数据库进行查询，所有第一次查询前，必须使用updatedb指令创建locate数据库</li>
 <li>locate  文件名   ：–快速查找指定的文件</li>
 <li>bug记录：当我执行updatedb指令时，弹出下图问题，说未找到命令’updatedb’，但可以与以下命令一起安装：安装第二个个指令就能用了</li>
-<li><img src="/2021/03/15/Linux-md/image-20210315102900499.png" alt="image-20210315102900499"></li>
+<li><img lazyload src="/images/loading.svg" data-src="image-20210315102900499.png" alt="image-20210315102900499"></li>
 </ul>
 </li>
 <li><p>grep指令和管道符号|</p>
@@ -509,7 +532,7 @@
 <li>介绍：grep过滤查找，管道符，”|“：表示将前一个命令的处理结果输出传递给后面的命令处理</li>
 <li>cat  文件名  |  grep  -n  查找的内容   :–打开指定文件名的文件由管道符|交给后面的过滤指令过滤出指定内容并显示行号，不加-n不显示，区分大小写</li>
 <li>cat  文件名  |  grep  -ni  查找的内容   :–打开指定文件名的文件由管道符|交给后面的过滤指令过滤出指定内容并显示行号，不加-n不显示，不区分大小写</li>
-<li><img src="/2021/03/15/Linux-md/image-20210315104956167.png" alt="image-20210315104956167"></li>
+<li><img lazyload src="/images/loading.svg" data-src="image-20210315104956167.png" alt="image-20210315104956167"></li>
 </ul>
 </li>
 </ul>
@@ -525,7 +548,7 @@
 <li>zip  -r（不加只能压缩单个文件） xxx.zip  要压缩的内容  ：–压缩文件和目录</li>
 <li>unzip  -d（不加默认解压到当前目录） 解压的目录   xxx.zip  ：–解压缩文件</li>
 <li>出现下图提示就是没安装zip安装一下就好了</li>
-<li><img src="/2021/03/15/Linux-md/image-20210315110508195.png" alt="image-20210315110508195"></li>
+<li><img lazyload src="/images/loading.svg" data-src="image-20210315110508195.png" alt="image-20210315110508195"></li>
 </ul>
 </li>
 <li><p>tar打包指令  打包后的文件是.tar.gz的文件</p>
@@ -539,6 +562,23 @@
 <h4 id="13-组管理和权限管理（P35）"><a href="#13-组管理和权限管理（P35）" class="headerlink" title="13.组管理和权限管理（P35）"></a>13.组管理和权限管理（P35）</h4>
         </div>
 
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：linux 学习记录</li>
+        <li>Post author：周瑜</li>
+        <li>Create time：2021-03-15 11:36:55</li>
+        <li>
+            Post link：https://xinblog.github.io/2021/03/15/Linux-md/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
         
 
         
@@ -579,6 +619,85 @@
         
 
         
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'MGx4bJRPnOeuIkSMmXyqahCY-gzGzoHsz',
+                    appKey: 'UqKYYeDXVBDfz5vClRDUgqMb',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '大家一起来讨论吧~',
+                    lang: 'en'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = '周瑜';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
     </div>
 </div>
 
@@ -599,6 +718,20 @@
             2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">周瑜</a>
         </div>
         
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
         <div class="theme-info info-item">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
         </div>
@@ -615,8 +748,16 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
         
     </ul>
 </div>
@@ -669,6 +810,14 @@
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">Linux学习记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Linux%E5%9F%BA%E7%A1%80%E7%AF%87"><span class="nav-number">1.1.</span> <span class="nav-text">一、Linux基础篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Linux%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.Linux介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Linux%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.Linux的目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Linux%E7%9B%AE%E5%BD%95%E6%80%BB%E7%BB%93"><span class="nav-number">1.1.2.0.1.</span> <span class="nav-text">Linux目录总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Linux%E8%BF%9C%E7%A8%8B%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.Linux远程操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-ubuntu%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.ubuntu设置中文</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Linux%E5%AE%9E%E6%93%8D%E7%AF%87"><span class="nav-number">1.2.</span> <span class="nav-text">二、Linux实操篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BD%BF%E7%94%A8Xshell%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.使用Xshell远程连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BF%9C%E7%A8%8B%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6Xftp5"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.远程上传下载文件Xftp5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-vi-%E5%92%8Cvim%E7%BC%96%E8%BE%91%E5%99%A8"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.vi 和vim编辑器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vi%E5%92%8Cvim%E7%9A%84%E4%B8%89%E7%A7%8D%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">vi和vim的三种常用模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%BC%80%E6%9C%BA%E3%80%81%E9%87%8D%E5%90%AF%E3%80%81%E5%92%8C%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%B3%A8%E9%94%80"><span class="nav-number">1.2.4.</span> <span class="nav-text">4.开机、重启、和用户登录注销</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E6%9C%BA-amp-%E9%87%8D%E5%90%AF%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.4.0.1.</span> <span class="nav-text">关机&amp;重启命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="nav-number">1.2.5.</span> <span class="nav-text">5.用户管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E8%AF%B4%E6%98%8E"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">1.说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">2.添加用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7"><span class="nav-number">1.2.5.3.</span> <span class="nav-text">3.删除用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%9F%A5%E8%AF%A2%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">1.2.5.4.</span> <span class="nav-text">4.查询用户信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%88%87%E6%8D%A2%E7%94%A8%E6%88%B7"><span class="nav-number">1.2.5.5.</span> <span class="nav-text">5.切换用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E7%94%A8%E6%88%B7%E7%BB%84-%E2%80%93%E7%B1%BB%E4%BC%BC%E4%BA%8E%E8%A7%92%E8%89%B2%EF%BC%8C%E7%B3%BB%E7%BB%9F%E5%8F%AF%E4%BB%A5%E5%AF%B9%E5%8F%88%E5%85%B1%E6%80%A7%E7%9A%84%E5%A4%9A%E4%B8%AA%E7%94%A8%E6%88%B7%E7%BB%9F%E4%B8%80%E7%AE%A1%E7%90%86"><span class="nav-number">1.2.5.6.</span> <span class="nav-text">6.用户组  –类似于角色，系统可以对又共性的多个用户统一管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E7%94%A8%E6%88%B7%E5%92%8C%E7%BB%84%E7%9A%84%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.5.7.</span> <span class="nav-text">7.用户和组的相关文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E5%AE%9E%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%88Ubuntu%E7%B3%BB%E7%BB%9F%E4%B8%8D%E4%B8%80%E6%A0%B7%EF%BC%89"><span class="nav-number">1.2.5.8.</span> <span class="nav-text">8.实用指令（Ubuntu系统不一样）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E5%B8%AE%E5%8A%A9%E6%8C%87%E4%BB%A4"><span class="nav-number">1.2.5.9.</span> <span class="nav-text">9.帮助指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%B1%BB%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="nav-number">1.2.5.10.</span> <span class="nav-text">10.文件目录类的指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E7%B1%BB%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="nav-number">1.2.5.11.</span> <span class="nav-text">11.时间日期类的指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-%E6%90%9C%E7%B4%A2%E6%9F%A5%E6%89%BE%E7%B1%BB%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="nav-number">1.2.5.12.</span> <span class="nav-text">12.搜索查找类的指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9%E6%8C%87%E4%BB%A4"><span class="nav-number">1.2.5.13.</span> <span class="nav-text">12.压缩和解压缩指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-%E7%BB%84%E7%AE%A1%E7%90%86%E5%92%8C%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%EF%BC%88P35%EF%BC%89"><span class="nav-number">1.2.5.14.</span> <span class="nav-text">13.组管理和权限管理（P35）</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
@@ -676,22 +825,91 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
 
 
-<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/local-search.js"></script>
 
 
 
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/code-copy.js"></script>
 
 
 
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/lazyload.js"></script>
 
-<div class="post-scripts">
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/toc.js"></script>
     
 </div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 
