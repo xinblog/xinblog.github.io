@@ -152,12 +152,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>2.6k Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.3k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>12 Mins</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>15 Mins</span>
         </span>
     
     
@@ -206,181 +206,103 @@
 <li><p>eureka-server</p>
 <ul>
 <li><p>添加eureka依赖</p>
-<ul>
-<li><pre><code class="xml"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>
-            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>
-            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>
-            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span>
-        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>
-<span class="comment"><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><br><span class="hljs-bullet">-</span> <span class="hljs-string">编写配置文件</span><br><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">```yml</span><br>    <span class="hljs-attr">spring:</span><br>      <span class="hljs-attr">application:</span><br>        <span class="hljs-attr">name:</span> <span class="hljs-string">eureka-server</span>  <span class="hljs-comment">#应用名称</span><br>    <span class="hljs-attr">server:</span><br>      <span class="hljs-attr">port:</span> <span class="hljs-number">8761</span><br>    <span class="hljs-attr">eureka:</span><br>      <span class="hljs-attr">instance:</span><br>        <span class="hljs-attr">hostname:</span> <span class="hljs-string">eureka01</span>  <span class="hljs-comment">#主机名</span><br>        <span class="hljs-attr">prefer-ip-address:</span> <span class="hljs-literal">true</span><br>        <span class="hljs-attr">instance-id:</span> <span class="hljs-string">$&#123;spring.cloud.client.ip-address&#125;:$&#123;server.port&#125;</span>  <span class="hljs-comment">#ip:port</span><br>      <span class="hljs-attr">client:</span><br>        <span class="hljs-comment">#设置服务注册中心地址，指向另一个注册中心</span><br>        <span class="hljs-attr">service-url:</span>    <span class="hljs-comment">#注册中心对外暴露的注册地址</span><br>          <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:8762/eureka/</span><br></code></pre></td></tr></table></figure></span></code></pre>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
-</ul>
+<li><p>编写配置文件</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">application:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">eureka-server</span>  <span class="hljs-comment">#应用名称</span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8761</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">instance:</span><br>    <span class="hljs-attr">hostname:</span> <span class="hljs-string">eureka01</span>  <span class="hljs-comment">#主机名</span><br>    <span class="hljs-attr">prefer-ip-address:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">instance-id:</span> <span class="hljs-string">$&#123;spring.cloud.client.ip-address&#125;:$&#123;server.port&#125;</span>  <span class="hljs-comment">#ip:port</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-comment">#设置服务注册中心地址，指向另一个注册中心</span><br>    <span class="hljs-attr">service-url:</span>    <span class="hljs-comment">#注册中心对外暴露的注册地址</span><br>      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:8762/eureka/</span><br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>eureka-server02</p>
 <ul>
 <li><p>同上，配置文件修改一下端口和注册地址</p>
-<ul>
-<li><pre><code class="yml"><span class="attr">spring:</span>
-  <span class="attr">application:</span>
-    <span class="attr">name:</span> <span class="string">eureka-server</span>  <span class="comment">#应用名称</span>
-<span class="attr">server:</span>
-  <span class="attr">port:</span> <span class="number">8762</span>
-<span class="attr">eureka:</span>
-  <span class="attr">instance:</span>
-    <span class="attr">hostname:</span> <span class="string">eureka02</span>  <span class="comment">#主机名</span>
-    <span class="attr">prefer-ip-address:</span> <span class="literal">true</span>
-    <span class="attr">instance-id:</span> <span class="string">$&#123;spring.cloud.client.ip-address&#125;:$&#123;server.port&#125;</span>  <span class="comment">#ip:port</span>
-  <span class="attr">client:</span>
-    <span class="comment">#设置服务注册中心地址，指向另一个注册中心</span>
-    <span class="attr">service-url:</span>    <span class="comment">#注册中心对外暴露的注册地址</span>
-      <span class="attr">defaultZone:</span> <span class="string">http://localhost:8761/eureka/</span>
-<span class="string"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs xml"><br>- 在创建两个服务端并注册到注册中心去，待会供我们的消费者使用<br><br>  - service-provider<br><br>    - 添加依赖<br><br>      - ```xml<br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure></span></code></pre>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">application:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">eureka-server</span>  <span class="hljs-comment">#应用名称</span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8762</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">instance:</span><br>    <span class="hljs-attr">hostname:</span> <span class="hljs-string">eureka02</span>  <span class="hljs-comment">#主机名</span><br>    <span class="hljs-attr">prefer-ip-address:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">instance-id:</span> <span class="hljs-string">$&#123;spring.cloud.client.ip-address&#125;:$&#123;server.port&#125;</span>  <span class="hljs-comment">#ip:port</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-comment">#设置服务注册中心地址，指向另一个注册中心</span><br>    <span class="hljs-attr">service-url:</span>    <span class="hljs-comment">#注册中心对外暴露的注册地址</span><br>      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:8761/eureka/</span><br></code></pre></td></tr></table></figure>
 </li>
 </ul>
+</li>
+</ul>
+</li>
+<li><p>在创建两个服务端并注册到注册中心去，待会供我们的消费者使用</p>
+<ul>
+<li><p>service-provider</p>
+<ul>
+<li><p>添加依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>编写配置文件</p>
-<ul>
-<li><pre><code class="yml"><span class="attr">spring:</span>
-  <span class="attr">application:</span>
-    <span class="attr">name:</span> <span class="string">service-provider</span>
-<span class="attr">server:</span>
-  <span class="attr">port:</span> <span class="number">7070</span>
-<span class="attr">eureka:</span>
-  <span class="attr">instance:</span>
-    <span class="attr">prefer-ip-address:</span> <span class="literal">true</span>
-    <span class="attr">instance-id:</span> <span class="string">$&#123;spring.cloud.client.ip-address&#125;:$&#123;server.port&#125;</span>
-  <span class="attr">client:</span>
-    <span class="attr">service-url:</span>
-      <span class="attr">defaultZone:</span>  <span class="string">http://localhost:8761/eureka/,</span>
-      <span class="string">http://localhost:8762/eureka/</span>  <span class="comment">#将其分别注册进两个注册中心中</span>
-<span class="string"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><br>- 编写bean<br><br>  - ```java<br>    <span class="hljs-keyword">package</span> com.feign.serviceprovider.bean;<br>    <br>    <span class="hljs-keyword">import</span> lombok.AllArgsConstructor;<br>    <span class="hljs-keyword">import</span> lombok.Data;<br>    <span class="hljs-keyword">import</span> lombok.NoArgsConstructor;<br>    <br>    <span class="hljs-keyword">import</span> java.io.Serializable;<br>    <span class="hljs-meta">@Data</span><br>    <span class="hljs-meta">@NoArgsConstructor</span><br>    <span class="hljs-meta">@AllArgsConstructor</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Product</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>        <span class="hljs-keyword">private</span> Integer id;<br>        <span class="hljs-keyword">private</span> String productName;<br>        <span class="hljs-keyword">private</span>  Integer productNum;<br>        <span class="hljs-keyword">private</span>  Double productPrice;<br>    <br>    &#125;<br></code></pre></td></tr></table></figure></span></code></pre>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs yml">   <span class="hljs-attr">spring:</span><br>     <span class="hljs-attr">application:</span><br>       <span class="hljs-attr">name:</span> <span class="hljs-string">service-provider</span><br>   <span class="hljs-attr">server:</span><br>     <span class="hljs-attr">port:</span> <span class="hljs-number">7070</span><br>   <span class="hljs-attr">eureka:</span><br>     <span class="hljs-attr">instance:</span><br>       <span class="hljs-attr">prefer-ip-address:</span> <span class="hljs-literal">true</span><br>       <span class="hljs-attr">instance-id:</span> <span class="hljs-string">$&#123;spring.cloud.client.ip-address&#125;:$&#123;server.port&#125;</span><br>     <span class="hljs-attr">client:</span><br>       <span class="hljs-attr">service-url:</span><br>         <span class="hljs-attr">defaultZone:</span>  <span class="hljs-string">http://localhost:8761/eureka/,</span><br><span class="hljs-string">http://localhost:8762/eureka/</span>  <span class="hljs-comment">#将其分别注册进两个注册中心中</span><br></code></pre></td></tr></table></figure>
 </li>
-</ul>
+<li><p>编写bean</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.feign.serviceprovider.bean;<br><br><span class="hljs-keyword">import</span> lombok.AllArgsConstructor;<br><span class="hljs-keyword">import</span> lombok.Data;<br><span class="hljs-keyword">import</span> lombok.NoArgsConstructor;<br><br><span class="hljs-keyword">import</span> java.io.Serializable;<br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@NoArgsConstructor</span><br><span class="hljs-meta">@AllArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Product</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> Integer id;<br>    <span class="hljs-keyword">private</span> String productName;<br>    <span class="hljs-keyword">private</span>  Integer productNum;<br>    <span class="hljs-keyword">private</span>  Double productPrice;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>编写service</p>
 <ul>
 <li><p>接口</p>
-<ul>
-<li><pre><code class="java"><span class="keyword">package</span> com.feign.serviceprovider.service;
-
-<span class="keyword">import</span> com.feign.serviceprovider.bean.Product;
-
-<span class="keyword">import</span> java.util.List;
-
-<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProductService</span> </span>&#123;
-    <span class="function">List&lt;Product&gt; <span class="title">getPro</span><span class="params">()</span></span>;
-&#125;
-&lt;!--code￼<span class="number">3</span>--&gt;</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.feign.serviceprovider.service;<br><br><span class="hljs-keyword">import</span> com.feign.serviceprovider.bean.Product;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ProductService</span> </span>&#123;<br>    <span class="hljs-function">List&lt;Product&gt; <span class="hljs-title">getPro</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
-</ul>
+<li><p>impl</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.feign.serviceprovider.service.impl;<br><br><span class="hljs-keyword">import</span> com.feign.serviceprovider.bean.Product;<br><span class="hljs-keyword">import</span> com.feign.serviceprovider.service.ProductService;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Service;<br><br><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProductServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ProductService</span> </span>&#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Product&gt; <span class="hljs-title">getPro</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> Arrays.asList(<span class="hljs-keyword">new</span> Product(<span class="hljs-number">1</span>,<span class="hljs-string">&quot;华为手机-7070&quot;</span>,<span class="hljs-number">2</span>,<span class="hljs-number">5000.00</span>),<br>                <span class="hljs-keyword">new</span> Product(<span class="hljs-number">2</span>,<span class="hljs-string">&quot;苹果手机&quot;</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6900.00</span>),<br>                <span class="hljs-keyword">new</span> Product(<span class="hljs-number">3</span>,<span class="hljs-string">&quot;一加手机&quot;</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4999.99</span>)<br>        );<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>编写控制器</p>
-<ul>
-<li><pre><code class="java"><span class="keyword">package</span> com.feign.serviceprovider.controller;
-
-<span class="keyword">import</span> com.feign.serviceprovider.service.ProductService;
-<span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;
-<span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;
-<span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;
-
-<span class="meta">@RestController</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductController</span> </span>&#123;
-    <span class="meta">@Autowired</span>
-    ProductService productService;
-<span class="meta">@GetMapping</span>(<span class="string">"/getPro"</span>)
-    <span class="function"><span class="keyword">public</span> Object <span class="title">getPro</span><span class="params">()</span></span>&#123;
-        <span class="keyword">return</span> productService.getPro();
-    &#125;
-&#125;
-&lt;!--code￼<span class="number">4</span>--&gt;</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.feign.serviceprovider.controller;<br><br><span class="hljs-keyword">import</span> com.feign.serviceprovider.service.ProductService;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;<br><br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProductController</span> </span>&#123;<br>    <span class="hljs-meta">@Autowired</span><br>    ProductService productService;<br><span class="hljs-meta">@GetMapping(&quot;/getPro&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getPro</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> productService.getPro();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>编写配置文件</p>
+<li><p>service-provider02</p>
 <ul>
-<li><pre><code class="yml"><span class="attr">spring:</span>
-  <span class="attr">application:</span>
-    <span class="attr">name:</span> <span class="string">service-provider</span>
-<span class="attr">server:</span>
-  <span class="attr">port:</span> <span class="number">9090</span>
-<span class="attr">eureka:</span>
-  <span class="attr">client:</span>
-    <span class="attr">service-url:</span>
-      <span class="attr">defaultZone:</span> <span class="string">http://localhost:8761/eureka/,http://localhost:8762/eureka/</span>
-    <span class="attr">register-with-eureka:</span> <span class="literal">false</span>  <span class="comment">#是否将自己注册到注册中心，默认为true</span>
-    <span class="attr">registry-fetch-interval-seconds:</span> <span class="number">10</span>  <span class="comment">#表示Eureka Client间隔多久去服务器拉取注册信息，默认为30秒</span>
-<span class="string"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><br>- 编写bean<br><br>  - Order<br><br>    - ```java<br>      <span class="hljs-keyword">package</span> com.feign.serviceconsumer.bean;<br>      <br>      <span class="hljs-keyword">import</span> lombok.AllArgsConstructor;<br>      <span class="hljs-keyword">import</span> lombok.Data;<br>      <span class="hljs-keyword">import</span> lombok.NoArgsConstructor;<br>      <br>      <span class="hljs-keyword">import</span> java.io.Serializable;<br>      <span class="hljs-keyword">import</span> java.util.List;<br>      <span class="hljs-meta">@Data</span><br>      <span class="hljs-meta">@AllArgsConstructor</span><br>      <span class="hljs-meta">@NoArgsConstructor</span><br>      <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>          <span class="hljs-keyword">private</span> Integer id;<br>          <span class="hljs-keyword">private</span> String orderNo;<br>          <span class="hljs-keyword">private</span>  String orderAddress;<br>          <span class="hljs-keyword">private</span>  Double totalPrice;<br>          <span class="hljs-keyword">private</span> List&lt;Product&gt; productList;<br>      &#125;<br></code></pre></td></tr></table></figure></span></code></pre>
+<li>同上除了配置文件端口和实现类输出的信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>最后创建我们的消费者远程调用服务端</p>
+<ul>
+<li><p>service-consumer</p>
+<ul>
+<li><p>添加依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>编写配置文件</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">application:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">service-provider</span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">9090</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">service-url:</span><br>      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:8761/eureka/,http://localhost:8762/eureka/</span><br>    <span class="hljs-attr">register-with-eureka:</span> <span class="hljs-literal">false</span>  <span class="hljs-comment">#是否将自己注册到注册中心，默认为true</span><br>    <span class="hljs-attr">registry-fetch-interval-seconds:</span> <span class="hljs-number">10</span>  <span class="hljs-comment">#表示Eureka Client间隔多久去服务器拉取注册信息，默认为30秒</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>编写bean</p>
+<ul>
+<li><p>Order</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.feign.serviceconsumer.bean;<br><br><span class="hljs-keyword">import</span> lombok.AllArgsConstructor;<br><span class="hljs-keyword">import</span> lombok.Data;<br><span class="hljs-keyword">import</span> lombok.NoArgsConstructor;<br><br><span class="hljs-keyword">import</span> java.io.Serializable;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@AllArgsConstructor</span><br><span class="hljs-meta">@NoArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> Integer id;<br>    <span class="hljs-keyword">private</span> String orderNo;<br>    <span class="hljs-keyword">private</span>  String orderAddress;<br>    <span class="hljs-keyword">private</span>  Double totalPrice;<br>    <span class="hljs-keyword">private</span> List&lt;Product&gt; productList;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>Product</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> lombok.AllArgsConstructor;<br><span class="hljs-keyword">import</span> lombok.Data;<br><span class="hljs-keyword">import</span> lombok.NoArgsConstructor;<br><br><span class="hljs-keyword">import</span> java.io.Serializable;<br><br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@NoArgsConstructor</span><br><span class="hljs-meta">@AllArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Product</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> Integer id;<br>    <span class="hljs-keyword">private</span> String productName;<br>    <span class="hljs-keyword">private</span>  Integer productNum;<br>    <span class="hljs-keyword">private</span>  Double productPrice;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>service层</p>
 <ul>
-<li><pre><code class="java"><span class="keyword">import</span> lombok.AllArgsConstructor;
-<span class="keyword">import</span> lombok.Data;
-<span class="keyword">import</span> lombok.NoArgsConstructor;
-
-<span class="keyword">import</span> java.io.Serializable;
-
-<span class="meta">@Data</span>
-<span class="meta">@NoArgsConstructor</span>
-<span class="meta">@AllArgsConstructor</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Product</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;
-    <span class="keyword">private</span> Integer id;
-    <span class="keyword">private</span> String productName;
-    <span class="keyword">private</span>  Integer productNum;
-    <span class="keyword">private</span>  Double productPrice;
-
-&#125;
-&lt;!--code￼<span class="number">6</span>--&gt;</code></pre>
+<li><p>Product</p>
+<ul>
+<li><p>接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.feign.serviceconsumer.service;<br><br><br><span class="hljs-keyword">import</span> com.feign.serviceconsumer.bean.Product;<br><span class="hljs-keyword">import</span> org.springframework.cloud.openfeign.FeignClient;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-meta">@FeignClient(&quot;SERVICE-PROVIDER&quot;)</span>  <span class="hljs-comment">//绑定在注册中心名为SERVICE-PROVIDER的服务端</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ProductService</span> </span>&#123;<br>    <span class="hljs-meta">@GetMapping(&quot;/getPro&quot;)</span><br>    <span class="hljs-function">List&lt;Product&gt; <span class="hljs-title">getPro</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>Order</p>
 <ul>
 <li><p>接口</p>
-<ul>
-<li><pre><code class="java"><span class="keyword">package</span> com.feign.serviceconsumer.service;
-
-<span class="keyword">import</span> com.feign.serviceconsumer.bean.Order;
-
-<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OrderService</span> </span>&#123;
-
-    <span class="function">Order <span class="title">selectOrderById</span><span class="params">(Integer id)</span></span>;
-&#125;
-&lt;!--code￼<span class="number">7</span>--&gt;</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.feign.serviceconsumer.service;<br><br><span class="hljs-keyword">import</span> com.feign.serviceconsumer.bean.Order;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">OrderService</span> </span>&#123;<br><br>    <span class="hljs-function">Order <span class="hljs-title">selectOrderById</span><span class="hljs-params">(Integer id)</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
-</ul>
+<li><p>impl</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.feign.serviceconsumer.service.impl;<br><br><span class="hljs-keyword">import</span> com.feign.serviceconsumer.bean.Order;<br><span class="hljs-keyword">import</span> com.feign.serviceconsumer.service.OrderService;<br><span class="hljs-keyword">import</span> com.feign.serviceconsumer.service.ProductService;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Service;<br><br><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">OrderService</span> </span>&#123;<br>    <span class="hljs-meta">@Autowired</span><br>    ProductService productService;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Order <span class="hljs-title">selectOrderById</span><span class="hljs-params">(Integer id)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Order(id,<span class="hljs-string">&quot;order-001&quot;</span>,<span class="hljs-string">&quot;中国&quot;</span>,<span class="hljs-number">2222.00</span>,productService.getPro());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>controller层</p>
-<ul>
-<li><pre><code class="java"><span class="keyword">package</span> com.feign.serviceconsumer.controller;
-
-<span class="keyword">import</span> com.feign.serviceconsumer.bean.Order;
-<span class="keyword">import</span> com.feign.serviceconsumer.service.OrderService;
-<span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;
-<span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;
-<span class="keyword">import</span> org.springframework.web.bind.annotation.PathVariable;
-<span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;
-
-<span class="meta">@RestController</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderController</span> </span>&#123;
-    <span class="meta">@Autowired</span>
-    <span class="keyword">private</span> OrderService orderService;
-
-    <span class="meta">@GetMapping</span>(<span class="string">"/getOrder/&#123;id&#125;"</span>)
-    <span class="function"><span class="keyword">public</span> Order <span class="title">getOrder</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id)</span>&#123;
-        <span class="keyword">return</span> orderService.selectOrderById(id);
-    &#125;
-&#125;
-&lt;!--code￼<span class="number">8</span>--&gt;</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.feign.serviceconsumer.controller;<br><br><span class="hljs-keyword">import</span> com.feign.serviceconsumer.bean.Order;<br><span class="hljs-keyword">import</span> com.feign.serviceconsumer.service.OrderService;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.PathVariable;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;<br><br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderController</span> </span>&#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> OrderService orderService;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/getOrder/&#123;id&#125;&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Order <span class="hljs-title">getOrder</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span></span>&#123;<br>        <span class="hljs-keyword">return</span> orderService.selectOrderById(id);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
-</ul>
+<li><p>springboot启动类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.feign.serviceconsumer;<br><br><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;<br><span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><span class="hljs-keyword">import</span> org.springframework.cloud.openfeign.EnableFeignClients;<br><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-meta">@EnableFeignClients</span>  <span class="hljs-comment">//告诉框架扫描所有通过注解@FeignClient定义的feign客户端</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ServiceConsumerApplication</span> </span>&#123;<br><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>      SpringApplication.run(ServiceConsumerApplication.class, args);<br>   &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -412,81 +334,47 @@
 <li><p>实例</p>
 <ul>
 <li><p>在服务提供者service-provider的接口添加一个根据id查询的方法</p>
-<ul>
-<li><pre><code class="java"><span class="keyword">package</span> com.feign.serviceprovider.service;
-
-<span class="keyword">import</span> com.feign.serviceprovider.bean.Product;
-
-<span class="keyword">import</span> java.util.List;
-
-<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProductService</span> </span>&#123;
-    <span class="function">List&lt;Product&gt; <span class="title">getPro</span><span class="params">()</span></span>;
-    <span class="function">Product <span class="title">getProById</span><span class="params">(Integer id)</span></span>;
-&#125;
-&lt;!--code￼<span class="number">10</span>--&gt;</code></pre>
-</li>
-</ul>
-</li>
-<li><p>在控制器层映射这个方法</p>
-<ul>
-<li><pre><code class="java"><span class="meta">@GetMapping</span>(<span class="string">"/getProById/&#123;id&#125;"</span>)
-<span class="function"><span class="keyword">public</span> Object <span class="title">getProById</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id)</span>&#123;
-    <span class="keyword">return</span> productService.getProById(id);
-&#125;
-&lt;!--code￼<span class="number">11</span>--&gt;</code></pre>
-</li>
-</ul>
-</li>
-<li><p>修改Order实现类，返回调用服务提供者的根据id查询方法</p>
-<ul>
-<li><pre><code class="java"><span class="meta">@Override</span>
-<span class="function"><span class="keyword">public</span> Order <span class="title">selectOrderById</span><span class="params">(Integer id)</span> </span>&#123;
-    <span class="keyword">return</span> <span class="keyword">new</span> Order(id,<span class="string">"order-001"</span>,<span class="string">"中国"</span>,<span class="number">2222.00</span>, 
-    Arrays.asList(productService.getProById(<span class="number">5</span>)));
-&#125;
-&lt;!--code￼<span class="number">12</span>--&gt;</code></pre>
-</li>
-</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.feign.serviceprovider.service;<br><br><span class="hljs-keyword">import</span> com.feign.serviceprovider.bean.Product;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ProductService</span> </span>&#123;<br>    <span class="hljs-function">List&lt;Product&gt; <span class="hljs-title">getPro</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function">Product <span class="hljs-title">getProById</span><span class="hljs-params">(Integer id)</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>在impl实现这个接口</p>
-<ul>
-<li><pre><code class="java"><span class="meta">@Override</span>
-<span class="function"><span class="keyword">public</span> Product <span class="title">getProByIdPost</span><span class="params">(Integer id)</span> </span>&#123;
-    <span class="keyword">return</span> <span class="keyword">new</span> Product(id,<span class="string">"洗衣机"</span>,<span class="number">5</span>,<span class="number">3999.00</span>);
-&#125;
-
-<span class="meta">@Override</span>
-<span class="function"><span class="keyword">public</span> Map&lt;Object, Object&gt; <span class="title">createPro</span><span class="params">(Product product)</span> </span>&#123;
-    System.out.println(product);
-    Map&lt;Object,Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();
-    <span class="keyword">if</span>(product == <span class="keyword">null</span>)&#123;
-        map.put(<span class="string">"code"</span>,<span class="number">400</span>);
-        map.put(<span class="string">"msg"</span>,<span class="string">"添加失败"</span>);
-        <span class="keyword">return</span> map;
-    &#125;
-    map.put(<span class="string">"code"</span>,<span class="number">200</span>);
-    map.put(<span class="string">"msg"</span>,<span class="string">"添加成功"</span>);
-    <span class="keyword">return</span> map;
-&#125;
-&lt;!--code￼<span class="number">13</span>--&gt;</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Product <span class="hljs-title">getProById</span><span class="hljs-params">(Integer id)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Product(id,<span class="hljs-string">&quot;冰箱&quot;</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3000.00</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
-</ul>
+<li><p>在控制器层映射这个方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping(&quot;/getProById/&#123;id&#125;&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getProById</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span></span>&#123;<br>    <span class="hljs-keyword">return</span> productService.getProById(id);<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>在消费者端的接口类调用这个方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-meta">@FeignClient(&quot;SERVICE-PROVIDER&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ProductService</span> </span>&#123;<br>    <span class="hljs-meta">@GetMapping(&quot;/getPro&quot;)</span><br>    <span class="hljs-function">List&lt;Product&gt; <span class="hljs-title">getPro</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-meta">@GetMapping(&quot;/getProById/&#123;id&#125;&quot;)</span><br>    <span class="hljs-function">Product <span class="hljs-title">getProById</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>修改Order实现类，返回调用服务提供者的根据id查询方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">     <span class="hljs-meta">@Override</span><br>     <span class="hljs-function"><span class="hljs-keyword">public</span> Order <span class="hljs-title">selectOrderById</span><span class="hljs-params">(Integer id)</span> </span>&#123;<br>         <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Order(id,<span class="hljs-string">&quot;order-001&quot;</span>,<span class="hljs-string">&quot;中国&quot;</span>,<span class="hljs-number">2222.00</span>, <br>Arrays.asList(productService.getProById(<span class="hljs-number">5</span>)));<br>     &#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>成功调用服务提供者的根据id查询方法，效果图</p>
 <ul>
-<li><pre><code>@FeignClient(&quot;SERVICE-PROVIDER&quot;)
-public interface ProductService &#123;
-    @GetMapping(&quot;/getPro&quot;)
-    List&lt;Product&gt; getPro();
-    @GetMapping(&quot;/getProById/&#123;id&#125;&quot;)
-    Product getProById(@PathVariable(&quot;id&quot;) Integer id);
-    @PostMapping(&quot;/getProByIdPost&quot;)
-    Product getProByIdPost(Integer id);
-    @PostMapping(&quot;save&quot;)
-    Map&lt;Object,Object&gt; createPro(Product product);
-&#125;
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><br>- 控制器层映射这两个方法<br><br>  - ```java<br>    @<span class="hljs-constructor">PostMapping(<span class="hljs-params">value</span> = <span class="hljs-string">&quot;/getProPost&quot;</span>,<span class="hljs-params">produces</span>=&#123;<span class="hljs-string">&quot;application/json;charset=UTF-8&quot;</span>&#125;)</span><br>    public Product get<span class="hljs-constructor">ProPost(Integer <span class="hljs-params">id</span>)</span>&#123;<br>        return productService.get<span class="hljs-constructor">ProByIdPost(<span class="hljs-params">id</span>)</span>;<br>    &#125;<br>    @<span class="hljs-constructor">PostMapping(<span class="hljs-string">&quot;/save&quot;</span>)</span><br>    public Map&lt;Object,Object&gt; save(Product product)&#123;<br>        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(product);<br>        return  productService.create<span class="hljs-constructor">Pro(<span class="hljs-params">product</span>)</span>;<br>    &#125;<br></code></pre></td></tr></table></figure></code></pre></li>
+<li><img lazyload src="/images/loading.svg" data-src="image-20210316105634966.png" alt="image-20210316105634966"></li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>post请求  使用@RequestBody注解接受请求参数</p>
+<ul>
+<li><p>实例</p>
+<ul>
+<li><p>在服务提供者service-provider的接口添加两个方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function">Product <span class="hljs-title">getProByIdPost</span><span class="hljs-params">(Integer id)</span></span>;<br><br><span class="hljs-function">Map&lt;Object,Object&gt; <span class="hljs-title">createPro</span><span class="hljs-params">(Product product)</span></span>;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在impl实现这个接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Product <span class="hljs-title">getProByIdPost</span><span class="hljs-params">(Integer id)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Product(id,<span class="hljs-string">&quot;洗衣机&quot;</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3999.00</span>);<br>&#125;<br><br><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;Object, Object&gt; <span class="hljs-title">createPro</span><span class="hljs-params">(Product product)</span> </span>&#123;<br>    System.out.println(product);<br>    Map&lt;Object,Object&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>    <span class="hljs-keyword">if</span>(product == <span class="hljs-keyword">null</span>)&#123;<br>        map.put(<span class="hljs-string">&quot;code&quot;</span>,<span class="hljs-number">400</span>);<br>        map.put(<span class="hljs-string">&quot;msg&quot;</span>,<span class="hljs-string">&quot;添加失败&quot;</span>);<br>        <span class="hljs-keyword">return</span> map;<br>    &#125;<br>    map.put(<span class="hljs-string">&quot;code&quot;</span>,<span class="hljs-number">200</span>);<br>    map.put(<span class="hljs-string">&quot;msg&quot;</span>,<span class="hljs-string">&quot;添加成功&quot;</span>);<br>    <span class="hljs-keyword">return</span> map;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在控制器层映射这个方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java">      <span class="hljs-meta">@PostMapping(&quot;/getProByIdPost&quot;)</span><br>      <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getProByIdPost</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Integer id)</span></span>&#123;<br>      <span class="hljs-keyword">return</span> productService.getProByIdPost(id);<br>      &#125;<br>      <span class="hljs-meta">@PostMapping(&quot;save&quot;)</span><br><span class="hljs-comment">//注意这里要加上@RequestBody注解，不然实现类那里获取不到product的值</span><br>      <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;Object,Object&gt; <span class="hljs-title">save</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Product product)</span></span>&#123;<br>          <span class="hljs-keyword">return</span> productService.createPro(product);<br>      &#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在消费者端的接口类调用这个方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@FeignClient(&quot;SERVICE-PROVIDER&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ProductService</span> </span>&#123;<br>    <span class="hljs-meta">@GetMapping(&quot;/getPro&quot;)</span><br>    <span class="hljs-function">List&lt;Product&gt; <span class="hljs-title">getPro</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-meta">@GetMapping(&quot;/getProById/&#123;id&#125;&quot;)</span><br>    <span class="hljs-function">Product <span class="hljs-title">getProById</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span></span>;<br>    <span class="hljs-meta">@PostMapping(&quot;/getProByIdPost&quot;)</span><br>    <span class="hljs-function">Product <span class="hljs-title">getProByIdPost</span><span class="hljs-params">(Integer id)</span></span>;<br>    <span class="hljs-meta">@PostMapping(&quot;save&quot;)</span><br>    <span class="hljs-function">Map&lt;Object,Object&gt; <span class="hljs-title">createPro</span><span class="hljs-params">(Product product)</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>控制器层映射这两个方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@PostMapping(value = &quot;/getProPost&quot;,produces=&#123;&quot;application/json;charset=UTF-8&quot;&#125;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Product <span class="hljs-title">getProPost</span><span class="hljs-params">(Integer id)</span></span>&#123;<br>    <span class="hljs-keyword">return</span> productService.getProByIdPost(id);<br>&#125;<br><span class="hljs-meta">@PostMapping(&quot;/save&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;Object,Object&gt; <span class="hljs-title">save</span><span class="hljs-params">(Product product)</span></span>&#123;<br>    System.out.println(product);<br>    <span class="hljs-keyword">return</span>  productService.createPro(product);<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>成功调用服务提供者的方法，效果图：</p>
 <p><img lazyload src="/images/loading.svg" data-src="image-20210316132939295.png" alt="image-20210316132939295"></p>
