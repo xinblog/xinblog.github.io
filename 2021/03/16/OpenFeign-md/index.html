@@ -1,195 +1,154 @@
-
-
 <!DOCTYPE html>
-<html lang="en" color-mode=light>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>OpenFeign学习记录 - 周瑜的小家园</title>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="google" content="notranslate" />
-  
-  <meta name="description" content="Feign声明式服务调用1.什么是feign
-Feig...">
-  <meta name="author" content="周瑜">
-  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
-  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
-  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
-  
-    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
-    <meta rel="msapplication-TileColor" content="#000000">
-  
-
-  
-<link rel="stylesheet" href="/css/style.css">
-
-
-  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Keep Team">
     
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_s6x2xcokxrl.css">
-
-  
-
-  
-    
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
-
-  
-
-  
-    
-      
+    <title>
         
+            OpenFeign学习记录 |
         
-<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
-
-      
-        
-        
-<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
-
-      
-  
-
-  <script>
-    var CONFIG = window.CONFIG || {};
-    var ZHAOO = window.ZHAOO || {};
-    CONFIG = {
-      isHome: false,
-      fancybox: true,
-      pjax: false,
-      lazyload: {
-        enable: true,
-        only_post: 'false',
-        loading: '/images/theme/loading.gif'
-      },
-      donate: {
-        enable: true,
-        alipay: 'https://pic.izhaoo.com/alipay.jpg',
-        wechat: 'https://pic.izhaoo.com/wechat.jpg'
-      },
-      galleries: {
-        enable: true
-      },
-      fab: {
-        enable: true,
-        always_show: false
-      },
-      carrier: {
-        enable: true
-      },
-      daovoice: {
-        enable: false
-      },
-      preview: {
-        background: {
-          default: '/images/theme/welcome-image.jpg',
-          api: ''
-        },
-        motto: {
-          default: '无法让步的有两件事，幸福和周瑜大人。',
-          api: 'https://v2.jinrishici.com/one.json',
-          data_contents: '["data","content"]'
-        },
-      },
-      qrcode: {
-        enable: true,
-        type: 'url',
-        image: 'https://pic.izhaoo.com/weapp-code.jpg',
-      },
-      toc: {
-        enable: true
-      },
-      scrollbar: {
-        type: 'simple'
-      },
-      notification: {
-        enable: false,
-        delay: 4500,
-        list: '',
-        page_white_list: '',
-        page_black_list: ''
-      }
-    }
+        Keep Theme
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"yoursite.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-
-  
-
-  
-
-<meta name="generator" content="Hexo 4.2.1"></head>
-
-<body class="lock-screen">
-  <div class="loading"></div>
-  
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
-  <nav class="navbar">
-    <div class="left">
-      
-        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
-      
-      
-        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
-      
-    </div>
-    <div class="center">OpenFeign学习记录</div>
-    <div class="right">
-      <i class="iconfont iconmenu j-navbar-menu"></i>
-    </div>
+<body>
+<div class="progress-bar-container">
     
-      <div id="qrcode-navbar"></div>
-    
-  </nav>
 
-  
+    
+</div>
 
-<nav class="menu">
-  <div class="menu-wrap">
-    <div class="menu-close">
-      <i class="iconfont iconbaseline-close-px"></i>
-    </div>
-    <ul class="menu-content"><li class="menu-item">
-        <a href="/ " class="underline "> 首页</a>
-      </li><li class="menu-item">
-        <a href="/galleries/ " class="underline "> 摄影</a>
-      </li><li class="menu-item">
-        <a href="/archives/ " class="underline "> 归档</a>
-      </li><li class="menu-item">
-        <a href="/tags/ " class="underline "> 标签</a>
-      </li><li class="menu-item">
-        <a href="/categories/ " class="underline "> 分类</a>
-      </li><li class="menu-item">
-        <a href="/about/ " class="underline "> 关于</a>
-      </li></ul>
+
+<main class="page-container">
+
     
-      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">fan</a></p></div>
-    
-  </div>
-</nav>
-  <main id="main">
-  <div class="article-wrap">
-    <div class="row container">
-      <div class="col-xl-3"></div>
-      <div class="col-xl-6"><article class="article">
-  <div class="wrap">
-    <section class="head">
-  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-  <div class="head-mask">
-    <h1 class="head-title">OpenFeign学习记录</h1>
-    <div class="head-info">
-      <span class="post-info-item"><i class="iconfont iconcalendar"></i>March 16, 2021</span>
-      
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>11089</span>
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                Keep Theme
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</section>
-    <section class="main">
-      <section class="content">
-        <h2 id="Feign声明式服务调用"><a href="#Feign声明式服务调用" class="headerlink" title="Feign声明式服务调用"></a>Feign声明式服务调用</h2><h3 id="1-什么是feign"><a href="#1-什么是feign" class="headerlink" title="1.什么是feign"></a>1.什么是feign</h3><ul>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">OpenFeign学习记录</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Keep Team</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-03-16 16:48:18
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="Feign声明式服务调用"><a href="#Feign声明式服务调用" class="headerlink" title="Feign声明式服务调用"></a>Feign声明式服务调用</h2><h3 id="1-什么是feign"><a href="#1-什么是feign" class="headerlink" title="1.什么是feign"></a>1.什么是feign</h3><ul>
 <li>Feign是SpringCloud Netflix 组件中的一个轻量级RESTful的HTTP服务客户端，实现了负载均衡和Rest调用的开源框架，封装了Ribbon和RestTemplate，实现了WebService的面向接口编程，进一步降低了项目的耦合度。</li>
 <li>Feign内置了Ribbon，用来做客户端负载均衡调用服务注册中心的服务。</li>
 <li>Feign本身并不支持SpringMVC的注解，他有一套自己的注解，为了更方便的使用，Spring Cloud孵化了OpenFeign。</li>
@@ -247,7 +206,7 @@ Feig...">
   <span class="attr">instance:</span>
     <span class="attr">hostname:</span> <span class="string">eureka02</span>  <span class="comment">#主机名</span>
     <span class="attr">prefer-ip-address:</span> <span class="literal">true</span>
-    <span class="attr">instance-id:</span> <span class="string">${spring.cloud.client.ip-address}:${server.port}</span>  <span class="comment">#ip:port</span>
+    <span class="attr">instance-id:</span> <span class="string">$&#123;spring.cloud.client.ip-address&#125;:$&#123;server.port&#125;</span>  <span class="comment">#ip:port</span>
   <span class="attr">client:</span>
     <span class="comment">#设置服务注册中心地址，指向另一个注册中心</span>
     <span class="attr">service-url:</span>    <span class="comment">#注册中心对外暴露的注册地址</span>
@@ -266,12 +225,12 @@ Feig...">
 <span class="attr">eureka:</span>
   <span class="attr">instance:</span>
     <span class="attr">prefer-ip-address:</span> <span class="literal">true</span>
-    <span class="attr">instance-id:</span> <span class="string">${spring.cloud.client.ip-address}:${server.port}</span>
+    <span class="attr">instance-id:</span> <span class="string">$&#123;spring.cloud.client.ip-address&#125;:$&#123;server.port&#125;</span>
   <span class="attr">client:</span>
     <span class="attr">service-url:</span>
       <span class="attr">defaultZone:</span>  <span class="string">http://localhost:8761/eureka/,</span>
       <span class="string">http://localhost:8762/eureka/</span>  <span class="comment">#将其分别注册进两个注册中心中</span>
-<span class="string"><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs groovy"><br>- 编写bean<br><br>  - ```java<br>    <span class="hljs-keyword">package</span> com.feign.serviceprovider.bean;<br>    <br>    <span class="hljs-keyword">import</span> lombok.AllArgsConstructor;<br>    <span class="hljs-keyword">import</span> lombok.Data;<br>    <span class="hljs-keyword">import</span> lombok.NoArgsConstructor;<br>    <br>    <span class="hljs-keyword">import</span> java.io.Serializable;<br>    <span class="hljs-meta">@Data</span><br>    <span class="hljs-meta">@NoArgsConstructor</span><br>    <span class="hljs-meta">@AllArgsConstructor</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Product</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> &#123;</span><br>        <span class="hljs-keyword">private</span> Integer id;<br>        <span class="hljs-keyword">private</span> String productName;<br>        <span class="hljs-keyword">private</span>  Integer productNum;<br>        <span class="hljs-keyword">private</span>  Double productPrice;<br>    <br>    &#125;<br></code></pre></td></tr></table></figure></span></code></pre>
+<span class="string"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><br>- 编写bean<br><br>  - ```java<br>    <span class="hljs-keyword">package</span> com.feign.serviceprovider.bean;<br>    <br>    <span class="hljs-keyword">import</span> lombok.AllArgsConstructor;<br>    <span class="hljs-keyword">import</span> lombok.Data;<br>    <span class="hljs-keyword">import</span> lombok.NoArgsConstructor;<br>    <br>    <span class="hljs-keyword">import</span> java.io.Serializable;<br>    <span class="hljs-meta">@Data</span><br>    <span class="hljs-meta">@NoArgsConstructor</span><br>    <span class="hljs-meta">@AllArgsConstructor</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Product</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>        <span class="hljs-keyword">private</span> Integer id;<br>        <span class="hljs-keyword">private</span> String productName;<br>        <span class="hljs-keyword">private</span>  Integer productNum;<br>        <span class="hljs-keyword">private</span>  Double productPrice;<br>    <br>    &#125;<br></code></pre></td></tr></table></figure></span></code></pre>
 </li>
 </ul>
 </li>
@@ -285,10 +244,10 @@ Feig...">
 
 <span class="keyword">import</span> java.util.List;
 
-<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProductService</span> </span>{
+<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProductService</span> </span>&#123;
     <span class="function">List&lt;Product&gt; <span class="title">getPro</span><span class="params">()</span></span>;
-}
-&lt;!--￼<span class="number">3</span>--&gt;</code></pre>
+&#125;
+&lt;!--code￼<span class="number">3</span>--&gt;</code></pre>
 </li>
 </ul>
 </li>
@@ -304,15 +263,15 @@ Feig...">
 <span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;
 
 <span class="meta">@RestController</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductController</span> </span>{
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductController</span> </span>&#123;
     <span class="meta">@Autowired</span>
     ProductService productService;
 <span class="meta">@GetMapping</span>(<span class="string">"/getPro"</span>)
-    <span class="function"><span class="keyword">public</span> Object <span class="title">getPro</span><span class="params">()</span></span>{
+    <span class="function"><span class="keyword">public</span> Object <span class="title">getPro</span><span class="params">()</span></span>&#123;
         <span class="keyword">return</span> productService.getPro();
-    }
-}
-&lt;!--￼<span class="number">4</span>--&gt;</code></pre>
+    &#125;
+&#125;
+&lt;!--code￼<span class="number">4</span>--&gt;</code></pre>
 </li>
 </ul>
 </li>
@@ -329,7 +288,7 @@ Feig...">
       <span class="attr">defaultZone:</span> <span class="string">http://localhost:8761/eureka/,http://localhost:8762/eureka/</span>
     <span class="attr">register-with-eureka:</span> <span class="literal">false</span>  <span class="comment">#是否将自己注册到注册中心，默认为true</span>
     <span class="attr">registry-fetch-interval-seconds:</span> <span class="number">10</span>  <span class="comment">#表示Eureka Client间隔多久去服务器拉取注册信息，默认为30秒</span>
-<span class="string"><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs groovy"><br>- 编写bean<br><br>  - Order<br><br>    - ```java<br>      <span class="hljs-keyword">package</span> com.feign.serviceconsumer.bean;<br>      <br>      <span class="hljs-keyword">import</span> lombok.AllArgsConstructor;<br>      <span class="hljs-keyword">import</span> lombok.Data;<br>      <span class="hljs-keyword">import</span> lombok.NoArgsConstructor;<br>      <br>      <span class="hljs-keyword">import</span> java.io.Serializable;<br>      <span class="hljs-keyword">import</span> java.util.List;<br>      <span class="hljs-meta">@Data</span><br>      <span class="hljs-meta">@AllArgsConstructor</span><br>      <span class="hljs-meta">@NoArgsConstructor</span><br>      <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> &#123;</span><br>          <span class="hljs-keyword">private</span> Integer id;<br>          <span class="hljs-keyword">private</span> String orderNo;<br>          <span class="hljs-keyword">private</span>  String orderAddress;<br>          <span class="hljs-keyword">private</span>  Double totalPrice;<br>          <span class="hljs-keyword">private</span> List&lt;Product&gt; productList;<br>      &#125;<br></code></pre></td></tr></table></figure></span></code></pre>
+<span class="string"><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><br>- 编写bean<br><br>  - Order<br><br>    - ```java<br>      <span class="hljs-keyword">package</span> com.feign.serviceconsumer.bean;<br>      <br>      <span class="hljs-keyword">import</span> lombok.AllArgsConstructor;<br>      <span class="hljs-keyword">import</span> lombok.Data;<br>      <span class="hljs-keyword">import</span> lombok.NoArgsConstructor;<br>      <br>      <span class="hljs-keyword">import</span> java.io.Serializable;<br>      <span class="hljs-keyword">import</span> java.util.List;<br>      <span class="hljs-meta">@Data</span><br>      <span class="hljs-meta">@AllArgsConstructor</span><br>      <span class="hljs-meta">@NoArgsConstructor</span><br>      <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>          <span class="hljs-keyword">private</span> Integer id;<br>          <span class="hljs-keyword">private</span> String orderNo;<br>          <span class="hljs-keyword">private</span>  String orderAddress;<br>          <span class="hljs-keyword">private</span>  Double totalPrice;<br>          <span class="hljs-keyword">private</span> List&lt;Product&gt; productList;<br>      &#125;<br></code></pre></td></tr></table></figure></span></code></pre>
 </li>
 <li><p>Product</p>
 <ul>
@@ -342,14 +301,14 @@ Feig...">
 <span class="meta">@Data</span>
 <span class="meta">@NoArgsConstructor</span>
 <span class="meta">@AllArgsConstructor</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Product</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>{
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Product</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;
     <span class="keyword">private</span> Integer id;
     <span class="keyword">private</span> String productName;
     <span class="keyword">private</span>  Integer productNum;
     <span class="keyword">private</span>  Double productPrice;
 
-}
-&lt;!--￼<span class="number">6</span>--&gt;</code></pre>
+&#125;
+&lt;!--code￼<span class="number">6</span>--&gt;</code></pre>
 </li>
 </ul>
 </li>
@@ -361,11 +320,11 @@ Feig...">
 
 <span class="keyword">import</span> com.feign.serviceconsumer.bean.Order;
 
-<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OrderService</span> </span>{
+<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OrderService</span> </span>&#123;
 
     <span class="function">Order <span class="title">selectOrderById</span><span class="params">(Integer id)</span></span>;
-}
-&lt;!--￼<span class="number">7</span>--&gt;</code></pre>
+&#125;
+&lt;!--code￼<span class="number">7</span>--&gt;</code></pre>
 </li>
 </ul>
 </li>
@@ -385,28 +344,28 @@ Feig...">
 <span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;
 
 <span class="meta">@RestController</span>
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderController</span> </span>{
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderController</span> </span>&#123;
     <span class="meta">@Autowired</span>
     <span class="keyword">private</span> OrderService orderService;
 
-    <span class="meta">@GetMapping</span>(<span class="string">"/getOrder/{id}"</span>)
-    <span class="function"><span class="keyword">public</span> Order <span class="title">getOrder</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id)</span>{
+    <span class="meta">@GetMapping</span>(<span class="string">"/getOrder/&#123;id&#125;"</span>)
+    <span class="function"><span class="keyword">public</span> Order <span class="title">getOrder</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id)</span>&#123;
         <span class="keyword">return</span> orderService.selectOrderById(id);
-    }
-}
-&lt;!--￼<span class="number">8</span>--&gt;</code></pre>
+    &#125;
+&#125;
+&lt;!--code￼<span class="number">8</span>--&gt;</code></pre>
 </li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>效果图：分别为第一次访问和第二次访问，feign自带负载均衡配置项，会依次访问两个服务端</p>
-<p><img class="lazyload" data-original="image-20210315224047507.png" src="/2021/03/16/OpenFeign-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210315224047507</span></p>
+<p><img src="/2021/03/16/OpenFeign-md/image-20210315224047507.png" alt="image-20210315224047507"></p>
 </li>
 </ul>
 </li>
 </ul>
-<p>  <img class="lazyload" data-original="image-20210315224119387.png" src="/2021/03/16/OpenFeign-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210315224119387</span></p>
+<p>  <img src="/2021/03/16/OpenFeign-md/image-20210315224119387.png" alt="image-20210315224119387"></p>
 <h4 id="6-feign负载均衡的配置"><a href="#6-feign负载均衡的配置" class="headerlink" title="6.feign负载均衡的配置"></a>6.feign负载均衡的配置</h4><ul>
 <li><p>feign负载均衡默认是轮询的，目前feign3.0.1好像配置没有，里面没有内置ribbonjar包</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">SERVICE-PROVIDER:</span><br>  <span class="hljs-attr">ribbon:</span><br>    <span class="hljs-attr">NFLoadBalancerRuleClassName:</span> <span class="hljs-string">com.netflix.loadbalancer.RandomRule</span><br></code></pre></td></tr></table></figure>
@@ -435,86 +394,80 @@ Feig...">
 
 <span class="keyword">import</span> java.util.List;
 
-<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProductService</span> </span>{
+<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProductService</span> </span>&#123;
     <span class="function">List&lt;Product&gt; <span class="title">getPro</span><span class="params">()</span></span>;
     <span class="function">Product <span class="title">getProById</span><span class="params">(Integer id)</span></span>;
-}
-&lt;!--￼<span class="number">10</span>--&gt;</code></pre>
+&#125;
+&lt;!--code￼<span class="number">10</span>--&gt;</code></pre>
 </li>
 </ul>
 </li>
 <li><p>在控制器层映射这个方法</p>
 <ul>
-<li><pre><code class="java"><span class="meta">@GetMapping</span>(<span class="string">"/getProById/{id}"</span>)
-<span class="function"><span class="keyword">public</span> Object <span class="title">getProById</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id)</span>{
+<li><pre><code class="java"><span class="meta">@GetMapping</span>(<span class="string">"/getProById/&#123;id&#125;"</span>)
+<span class="function"><span class="keyword">public</span> Object <span class="title">getProById</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id)</span>&#123;
     <span class="keyword">return</span> productService.getProById(id);
-}
-&lt;!--￼<span class="number">11</span>--&gt;</code></pre>
+&#125;
+&lt;!--code￼<span class="number">11</span>--&gt;</code></pre>
 </li>
 </ul>
 </li>
 <li><p>修改Order实现类，返回调用服务提供者的根据id查询方法</p>
 <ul>
 <li><pre><code class="java"><span class="meta">@Override</span>
-<span class="function"><span class="keyword">public</span> Order <span class="title">selectOrderById</span><span class="params">(Integer id)</span> </span>{
+<span class="function"><span class="keyword">public</span> Order <span class="title">selectOrderById</span><span class="params">(Integer id)</span> </span>&#123;
     <span class="keyword">return</span> <span class="keyword">new</span> Order(id,<span class="string">"order-001"</span>,<span class="string">"中国"</span>,<span class="number">2222.00</span>, 
     Arrays.asList(productService.getProById(<span class="number">5</span>)));
-}
-&lt;!--￼<span class="number">12</span>--&gt;</code></pre>
+&#125;
+&lt;!--code￼<span class="number">12</span>--&gt;</code></pre>
 </li>
 </ul>
 </li>
 <li><p>在impl实现这个接口</p>
 <ul>
 <li><pre><code class="java"><span class="meta">@Override</span>
-<span class="function"><span class="keyword">public</span> Product <span class="title">getProByIdPost</span><span class="params">(Integer id)</span> </span>{
+<span class="function"><span class="keyword">public</span> Product <span class="title">getProByIdPost</span><span class="params">(Integer id)</span> </span>&#123;
     <span class="keyword">return</span> <span class="keyword">new</span> Product(id,<span class="string">"洗衣机"</span>,<span class="number">5</span>,<span class="number">3999.00</span>);
-}
+&#125;
 
 <span class="meta">@Override</span>
-<span class="function"><span class="keyword">public</span> Map&lt;Object, Object&gt; <span class="title">createPro</span><span class="params">(Product product)</span> </span>{
+<span class="function"><span class="keyword">public</span> Map&lt;Object, Object&gt; <span class="title">createPro</span><span class="params">(Product product)</span> </span>&#123;
     System.out.println(product);
     Map&lt;Object,Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();
-    <span class="keyword">if</span>(product == <span class="keyword">null</span>){
+    <span class="keyword">if</span>(product == <span class="keyword">null</span>)&#123;
         map.put(<span class="string">"code"</span>,<span class="number">400</span>);
         map.put(<span class="string">"msg"</span>,<span class="string">"添加失败"</span>);
         <span class="keyword">return</span> map;
-    }
+    &#125;
     map.put(<span class="string">"code"</span>,<span class="number">200</span>);
     map.put(<span class="string">"msg"</span>,<span class="string">"添加成功"</span>);
     <span class="keyword">return</span> map;
-}
-&lt;!--￼<span class="number">13</span>--&gt;
-<span class="meta">@PostMapping</span>(<span class="string">"/getProByIdPost"</span>)
-<span class="function"><span class="keyword">public</span> Object <span class="title">getProByIdPost</span><span class="params">(@RequestBody Integer id)</span></span>{
-<span class="keyword">return</span> productService.getProByIdPost(id);
-}
-<span class="meta">@PostMapping</span>(<span class="string">"save"</span>)
-<span class="comment">//注意这里要加上@RequestBody注解，不然实现类那里获取不到product的值</span>
-<span class="function"><span class="keyword">public</span> Map&lt;Object,Object&gt; <span class="title">save</span><span class="params">(@RequestBody Product product)</span></span>{
-    <span class="keyword">return</span> productService.createPro(product);
-}
-&lt;!--￼<span class="number">14</span>--&gt;
-<span class="meta">@FeignClient</span>(<span class="string">"SERVICE-PROVIDER"</span>)
-<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProductService</span> </span>{
-    <span class="meta">@GetMapping</span>(<span class="string">"/getPro"</span>)
-    <span class="function">List&lt;Product&gt; <span class="title">getPro</span><span class="params">()</span></span>;
-    <span class="meta">@GetMapping</span>(<span class="string">"/getProById/{id}"</span>)
-    <span class="function">Product <span class="title">getProById</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id)</span>;
-    <span class="meta">@PostMapping</span>(<span class="string">"/getProByIdPost"</span>)
-    <span class="function">Product <span class="title">getProByIdPost</span><span class="params">(Integer id)</span></span>;
-    <span class="meta">@PostMapping</span>(<span class="string">"save"</span>)
-    <span class="function">Map&lt;Object,Object&gt; <span class="title">createPro</span><span class="params">(Product product)</span></span>;
-}
-&lt;!--￼<span class="number">15</span>--&gt;</code></pre>
+&#125;
+&lt;!--code￼<span class="number">13</span>--&gt;</code></pre>
 </li>
+</ul>
+</li>
+<li><p>在消费者端的接口类调用这个方法</p>
+<ul>
+<li><pre><code>@FeignClient(&quot;SERVICE-PROVIDER&quot;)
+public interface ProductService &#123;
+    @GetMapping(&quot;/getPro&quot;)
+    List&lt;Product&gt; getPro();
+    @GetMapping(&quot;/getProById/&#123;id&#125;&quot;)
+    Product getProById(@PathVariable(&quot;id&quot;) Integer id);
+    @PostMapping(&quot;/getProByIdPost&quot;)
+    Product getProByIdPost(Integer id);
+    @PostMapping(&quot;save&quot;)
+    Map&lt;Object,Object&gt; createPro(Product product);
+&#125;
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><br>- 控制器层映射这两个方法<br><br>  - ```java<br>    @<span class="hljs-constructor">PostMapping(<span class="hljs-params">value</span> = <span class="hljs-string">&quot;/getProPost&quot;</span>,<span class="hljs-params">produces</span>=&#123;<span class="hljs-string">&quot;application/json;charset=UTF-8&quot;</span>&#125;)</span><br>    public Product get<span class="hljs-constructor">ProPost(Integer <span class="hljs-params">id</span>)</span>&#123;<br>        return productService.get<span class="hljs-constructor">ProByIdPost(<span class="hljs-params">id</span>)</span>;<br>    &#125;<br>    @<span class="hljs-constructor">PostMapping(<span class="hljs-string">&quot;/save&quot;</span>)</span><br>    public Map&lt;Object,Object&gt; save(Product product)&#123;<br>        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(product);<br>        return  productService.create<span class="hljs-constructor">Pro(<span class="hljs-params">product</span>)</span>;<br>    &#125;<br></code></pre></td></tr></table></figure></code></pre></li>
 </ul>
 </li>
 <li><p>成功调用服务提供者的方法，效果图：</p>
-<p><img class="lazyload" data-original="image-20210316132939295.png" src="/2021/03/16/OpenFeign-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210316132939295</span></p>
+<p><img src="/2021/03/16/OpenFeign-md/image-20210316132939295.png" alt="image-20210316132939295"></p>
 </li>
 </ul>
-<p><img class="lazyload" data-original="image-20210316133112713.png" src="/2021/03/16/OpenFeign-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210316133112713</span></p>
+<p><img src="/2021/03/16/OpenFeign-md/image-20210316133112713.png" alt="image-20210316133112713"></p>
 </li>
 </ul>
 </li>
@@ -529,17 +482,17 @@ Feig...">
 <li><p>gzip作用：网络数据经过压缩后实际上降低了网络传输的字节数，最明显的好处就是可以加快网页加载的速度。</p>
 </li>
 <li><p>实例：百度用的就是gzip压缩</p>
-<p><img class="lazyload" data-original="image-20210316134006646.png" src="/2021/03/16/OpenFeign-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210316134006646</span></p>
+<p><img src="/2021/03/16/OpenFeign-md/image-20210316134006646.png" alt="image-20210316134006646"></p>
 </li>
 <li><p>Accept-Encoding向服务端表示客户端支持的压缩格式，如果不发送该消息头，服务端默认是不会压缩的</p>
 </li>
 <li><p>服务端在收到请求后，如果发现请求头中含有Accept-Encoding字段，并且支持该类型压缩，就会对响应报文压缩之后返回给客户端，并且携带Content-Encoding：gzip消息头，表示响应报文是根据该格式进行压缩的。</p>
 </li>
 <li><p>客户端接收到请求后，先判断是否有Content-Encoding消息头，如果有，按照格式解压报文。否则按正常报文处理</p>
-<p><img class="lazyload" data-original="image-20210316134157354.png" src="/2021/03/16/OpenFeign-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210316134157354</span></p>
+<p><img src="/2021/03/16/OpenFeign-md/image-20210316134157354.png" alt="image-20210316134157354"></p>
 </li>
 <li><p>全局配置  –目前无效，原因不详  –添加这个mime-types: “application/xhtml+xml”就好了</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yml">  <span class="hljs-attr">server:</span><br>    <span class="hljs-attr">port:</span> <span class="hljs-number">9090</span><br>    <span class="hljs-attr">compression:</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span>   <span class="hljs-comment">#是否开启压缩</span><br>      <span class="hljs-comment">#mime-types：配置压缩支持的类型。默认支持"text/html", </span><br><span class="hljs-string">"text/xml"</span><span class="hljs-string">,</span> <span class="hljs-string">"text/plain"</span><span class="hljs-string">,</span> <span class="hljs-string">"text/css"</span><span class="hljs-string">,</span> <span class="hljs-string">"text/javascript"</span><span class="hljs-string">,</span><br><span class="hljs-string">"application/javascript"</span><span class="hljs-string">,</span> <span class="hljs-string">"application/json"</span><span class="hljs-string">,</span> <span class="hljs-string">"application/xml"</span><br>  <span class="hljs-comment">#    mime-types:</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yml">  <span class="hljs-attr">server:</span><br>    <span class="hljs-attr">port:</span> <span class="hljs-number">9090</span><br>    <span class="hljs-attr">compression:</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span>   <span class="hljs-comment">#是否开启压缩</span><br>      <span class="hljs-comment">#mime-types：配置压缩支持的类型。默认支持&quot;text/html&quot;, </span><br><span class="hljs-string">&quot;text/xml&quot;</span><span class="hljs-string">,</span> <span class="hljs-string">&quot;text/plain&quot;</span><span class="hljs-string">,</span> <span class="hljs-string">&quot;text/css&quot;</span><span class="hljs-string">,</span> <span class="hljs-string">&quot;text/javascript&quot;</span><span class="hljs-string">,</span><br><span class="hljs-string">&quot;application/javascript&quot;</span><span class="hljs-string">,</span> <span class="hljs-string">&quot;application/json&quot;</span><span class="hljs-string">,</span> <span class="hljs-string">&quot;application/xml&quot;</span><br>  <span class="hljs-comment">#    mime-types:</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>局部配置</p>
 <ul>
@@ -568,22 +521,22 @@ Feig...">
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Product <span class="hljs-title">savePro</span><span class="hljs-params">(Product product)</span> </span>&#123;<br>    System.out.println(product);<br>    <span class="hljs-keyword">return</span> product;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>控制器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"savePro"</span>)<br><span class="hljs-function"><span class="hljs-keyword">public</span> Product <span class="hljs-title">savePro</span><span class="hljs-params">(@RequestBody  Product product)</span></span>&#123;<br><span class="hljs-keyword">return</span> product;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping(&quot;savePro&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Product <span class="hljs-title">savePro</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span>  Product product)</span></span>&#123;<br><span class="hljs-keyword">return</span> product;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>消费者远程调用</p>
 <ul>
 <li><p>接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/savePro"</span>)<br><span class="hljs-function">Product <span class="hljs-title">savePro</span><span class="hljs-params">(Product product)</span></span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping(&quot;/savePro&quot;)</span><br><span class="hljs-function">Product <span class="hljs-title">savePro</span><span class="hljs-params">(Product product)</span></span>;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>控制器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/savePro"</span>)<br><span class="hljs-function"><span class="hljs-keyword">public</span> Product <span class="hljs-title">savePro</span><span class="hljs-params">(Product product)</span></span>&#123;<br>    <span class="hljs-keyword">return</span> product;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping(&quot;/savePro&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Product <span class="hljs-title">savePro</span><span class="hljs-params">(Product product)</span></span>&#123;<br>    <span class="hljs-keyword">return</span> product;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>效果图：</p>
-<p><img class="lazyload" data-original="image-20210316150339188.png" src="/2021/03/16/OpenFeign-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210316150339188</span></p>
+<p><img src="/2021/03/16/OpenFeign-md/image-20210316150339188.png" alt="image-20210316150339188"></p>
 </li>
 </ul>
 </li>
@@ -599,214 +552,153 @@ Feig...">
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">ribbon:</span><br>  <span class="hljs-attr">ConnectTimeout:</span> <span class="hljs-number">2000</span><br>  <span class="hljs-attr">ReadTimeout:</span> <span class="hljs-number">2000</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>局部</p>
-<p><img class="lazyload" data-original="image-20210316155310299.png" src="/2021/03/16/OpenFeign-md/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="><span class="image-caption">image-20210316155310299</span></p>
+<p><img src="/2021/03/16/OpenFeign-md/image-20210316155310299.png" alt="image-20210316155310299"></p>
 </li>
 </ul>
 </li>
 </ul>
 
-      </section>
-      <section class="extra">
-        
-          <ul class="copyright">
-  
-    <li><strong>本文作者：</strong>周瑜</li>
-    <li><strong>本文链接：</strong><a href="http://yoursite.com/2021/03/16/OpenFeign-md/index.html" title="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;03&#x2F;16&#x2F;OpenFeign-md&#x2F;index.html">http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;03&#x2F;16&#x2F;OpenFeign-md&#x2F;index.html</a></li>
-    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
-  
-</ul>
-        
-        
-          <section class="donate">
-  <div id="qrcode-donate">
-    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
-  </div>
-  <div class="icon">
-    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
-    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
-  </div>
-</section>
-        
-        
-        
-  <nav class="nav">
-    <a></a>
-    <a href="/2021/03/15/apollo-md/">apollo 学习记录<i class="iconfont iconright"></i></a>
-  </nav>
-
-      </section>
-      
-        <section class="comments">
-  
-    <div class="btn" id="comments-btn">查看评论</div>
-  
-  
-<div id="valine"></div>
-<script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-  window.onload = function () {
-    var loadValine = function () {
-      new Valine({
-        el: '#valine',
-        app_id: "MGx4bJRPnOeuIkSMmXyqahCY-gzGzoHsz",
-        app_key: "UqKYYeDXVBDfz5vClRDUgqMb",
-        placeholder: "大家一起来讨论吧~",
-        avatar: "wavatar",
-        pageSize: "10",
-        lang: "zh-CN",
-      });
-    }
-    if ( true ) {
-      $("#comments-btn").on("click", function () {
-        $(this).hide();
-        loadValine();
-      });
-    } else {
-      loadValine();
-    }
-  };
-</script>
-
-</section>
-      
-    </section>
-  </div>
-</article></div>
-      <div class="col-xl-3">
-        
-          
-  <aside class="toc-wrap">
-    <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Feign声明式服务调用"><span class="toc-text">Feign声明式服务调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是feign"><span class="toc-text">1.什么是feign</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Feign解决了什么问题"><span class="toc-text">2.Feign解决了什么问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Feign-vs-Open-Feign"><span class="toc-text">3.Feign  vs  Open Feign</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Feign入门案例"><span class="toc-text">4.Feign入门案例</span></a></li></ol></li></ol>
-  </aside>
+        </div>
 
         
-      </div>
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/03/15/apollo-md/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">apollo 学习记录</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
     </div>
-  </div>
-</main>
-  
-
-<footer class="footer">
-  <div class="footer-social"><a 
-        href="tencent://message/?Menu=yes&uin=1507127578 "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#12B7F5'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconQQ "></i>
-      </a><a 
-        href="javascript:; "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#09BB07'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconwechat-fill "></i>
-      </a><a 
-        href="https://www.instagram.com/izhaoo/ "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#DA2E76'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconinstagram "></i>
-      </a><a 
-        href="https://github.com/xinblog "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#9f7be1'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  icongithub-fill "></i>
-      </a><a 
-        href="mailto:1507127578@qq.com "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color=#FF3B00" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconmail"></i>
-      </a></div>
-  
-    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">fan</a></p></div>
-  
-</footer>
-  
-      <div class="fab fab-plus">
-    <i class="iconfont iconplus"></i>
-  </div>
-  
-  
-  <div class="fab fab-up">
-    <i class="iconfont iconcaret-up"></i>
-  </div>
-  
-  
-    <div class="scrollbar j-scrollbar">
-  <div class="scrollbar-current j-scrollbar-current"></div>
 </div>
-  
-  
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
     
-<script src="/js/color-mode.js"></script>
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
 
-  
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
-
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-
-
-
-  
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
-
-
-
-
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-
-
-
-
-
-
-  
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
-
-
-
-
-<script src="/js/utils.js"></script>
-<script src="/js/script.js"></script>
-
-
-
-
-
-
-
-  <script>
-    (function () {
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-      } else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-      }
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>
